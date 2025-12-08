@@ -23,7 +23,6 @@ const Slider = () => {
   const slideLeft = (element) => {
     element.scrollLeft -= screenWidth - 110;
   };
-  console.log(movieList);
   return (
     <div className=" ">
       {/* left arrow  icon */}

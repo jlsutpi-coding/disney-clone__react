@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import GlobalApi from "../Services/GlobalApi";
 import "./no-scrollbar.css";
 import MovieCard from "./MovieCard";
@@ -7,10 +7,11 @@ import {
   IoChevronBackOutline,
   IoChevronForwardOutline,
 } from "react-icons/io5";
+import LargeMovieCard from "./LargeMovieCard";
 
 const screenWidth = window.innerWidth;
 
-const MovieList = ({ genreId }) => {
+const MovieList = ({ genreId, index }) => {
   const [movieList, setMovieList] = useState([]);
 
   useEffect(() => {
@@ -33,22 +34,32 @@ const MovieList = ({ genreId }) => {
     <div className="relative">
       {/* left arrow */}
       <IoChevronBackOutline
-        className=" hidden md:block  text-white cursor-pointer text-[30px] absolute top-[40%] z-10 "
+        className={` hidden md:block  text-white cursor-pointer text-[30px] absolute ${
+          index % 3 === 0 ? "top-[30%]" : "top-[45%]"
+        } z-10 `}
         onClick={() => slideLeft(elementRef.current)}
+      />
+      <IoChevronForwardOutline
+        className={` hidden md:block z-20  text-white cursor-pointer text-[30px] absolute right-0 ${
+          index % 3 === 0 ? "top-[30%]" : "top-[45%]"
+        }`}
+        onClick={() => sliderRight(elementRef.current)}
       />
       <div
         ref={elementRef}
         className="flex overflow-x-auto gap-10 no-scrollbar  pt-5 pb-10 px-3 scroll-smooth"
       >
         {movieList.map((item) => (
-          <MovieCard key={item.id} item={item} />
+          <Fragment key={item.id}>
+            {index % 3 === 0 ? (
+              <LargeMovieCard item={item} />
+            ) : (
+              <MovieCard item={item} />
+            )}
+          </Fragment>
         ))}
       </div>
       {/* right arrow */}
-      <IoChevronForwardOutline
-        className=" hidden md:block  text-white cursor-pointer text-[30px] absolute right-0 top-[40%]"
-        onClick={() => sliderRight(elementRef.current)}
-      />
     </div>
   );
 };
