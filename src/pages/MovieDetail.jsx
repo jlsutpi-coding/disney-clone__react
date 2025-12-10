@@ -2,22 +2,32 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import GlobalApi from "../Services/GlobalApi";
 import { useParams } from "react-router-dom";
-import GenreList from "../Constant/GenreList";
 
 const MovieDetail = () => {
-  const { movieId } = useParams();
-  const [movieDetail, setMovieDetail] = useState(null);
+  const { movie_id, media_type } = useParams();
+  const [detail, setDetail] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await GlobalApi.getMovieDeatail(movieId);
-      setMovieDetail(response.data);
+      const response = await GlobalApi.getMovieDeatail(movie_id, media_type);
+      setDetail(response.data);
     };
     fetchData();
-  }, [movieId]);
-  if (!movieDetail) {
+  }, [movie_id, media_type]);
+
+  console.log(detail);
+
+  if (!detail) {
     return null;
   }
+
+  const title =
+    media_type === "movie" ? detail.original_title : detail.original_name;
+
+  const latest_release_date =
+    media_type === "movie"
+      ? new Date(detail.release_date).getFullYear()
+      : new Date(detail.last_air_date).getFullYear();
 
   return (
     <div className="h-screen">
@@ -29,7 +39,7 @@ const MovieDetail = () => {
       <div className=" relative w-full overflow-hidden">
         {/* Background Image */}
         <img
-          src={`${GlobalApi.IMAGE_BASE_URL}/${movieDetail?.backdrop_path}`}
+          src={`${GlobalApi.IMAGE_BASE_URL}/${detail?.backdrop_path}`}
           className="w-full h-[600px] object-cover"
           alt=""
         />
@@ -43,18 +53,14 @@ const MovieDetail = () => {
             {/* LEFT SECTION */}
             <div className="text-white max-w-xl space-y-4">
               <p className="px-3 py-auto w-fit flex items-center py-1  bg-black rounded-xl text-sm">
-                {movieDetail.release_date && "movie"}
+                {media_type === "movie" ? "movie" : "series"}
               </p>
 
-              <h1 className="text-4xl font-bold">
-                {movieDetail.original_title}
-              </h1>
+              <h1 className="text-4xl font-bold">{title}</h1>
 
               <p className="text-gray-300 text-sm">
-                <span>
-                  {new Date(movieDetail.release_date).getFullYear()} .
-                </span>
-                {movieDetail.genres.map((item) => (
+                <span>{latest_release_date} .</span>
+                {detail.genres.map((item) => (
                   <span className=" pr-2" key={item.id}>
                     {item.name}
                   </span>

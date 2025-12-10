@@ -1,16 +1,16 @@
 import React from "react";
 
-import DisneyLogo from "../assets/images/disney.png";
-import MarvelLogo from "../assets/images/marvel.png";
-import NationalGLogo from "../assets/images/NationalG.png";
-import PixarLogo from "../assets/images/pixar.png";
-import StarwarLogo from "../assets/images/starwar.png";
+import DisneyLogo from "../../assets/images/disney.png";
+import MarvelLogo from "../../assets/images/marvel.png";
+import NationalGLogo from "../../assets/images/NationalG.png";
+import PixarLogo from "../../assets/images/pixar.png";
+import StarwarLogo from "../../assets/images/starwar.png";
 
-import DisneyVideo from "../assets/videos/disney.mp4";
-import MarvelVideo from "../assets/videos/marvel.mp4";
-import NationalGVideo from "../assets/videos/national-geographic.mp4";
-import PixarVideo from "../assets/videos/pixar.mp4";
-import StarWarsVideo from "../assets/videos/star-wars.mp4";
+import DisneyVideo from "../../assets/videos/disney.mp4";
+import MarvelVideo from "../../assets/videos/marvel.mp4";
+import NationalGVideo from "../../assets/videos/national-geographic.mp4";
+import PixarVideo from "../../assets/videos/pixar.mp4";
+import StarWarsVideo from "../../assets/videos/star-wars.mp4";
 
 const ProductionHouse = () => {
   const productionHouseLists = [

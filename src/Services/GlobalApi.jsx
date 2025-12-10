@@ -16,8 +16,8 @@ const getMovieByGenreId = (id) => {
   return axios.get(`${movieGenreBaseUrl}?api_key=${apiKey}&with_genres=${id}`);
 };
 // https://api.themoviedb.org/3/movie/1083637?api_key=aa1c1def5cdf04d3c70f27af3bfddad6
-const getMovieDeatail = (id) => {
-  return axios.get(`${movieBaseUrl}/movie/${id}?api_key=${apiKey}`);
+const getMovieDeatail = (id, media_type) => {
+  return axios.get(`${movieBaseUrl}/${media_type}/${id}?api_key=${apiKey}`);
 };
 export default {
   getTrendingVideos,

@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./no-scrollbar.css";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
-import GlobalApi from "../Services/GlobalApi";
+import GlobalApi from "../../Services/GlobalApi";
+import { Link, useNavigate } from "react-router-dom";
 
-const screenWidth = window.innerWidth;
 const Slider = () => {
   const [movieList, setMovieList] = useState([]);
 
   const elementRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,10 +19,12 @@ const Slider = () => {
   }, []);
 
   const sliderRight = (element) => {
-    element.scrollLeft += screenWidth - 110;
+    const cardWidth = element.firstChild.clientWidth;
+    element.scrollLeft += cardWidth + 20;
   };
   const slideLeft = (element) => {
-    element.scrollLeft -= screenWidth - 110;
+    const cardWidth = element.firstChild.clientWidth;
+    element.scrollLeft -= cardWidth + 20;
   };
   return (
     <div className=" ">
@@ -40,13 +43,15 @@ const Slider = () => {
         className=" no-scrollbar flex overflow-x-auto w-full px-16 py-4 scroll-smooth "
         ref={elementRef}
       >
-        {movieList?.map((item) => {
+        {movieList?.map((item, index) => {
+          if (index > 17) console.log(item);
           return (
             <img
+              onClick={() => navigate(`/${item.media_type}/${item.id}`)}
               key={item.id}
               src={GlobalApi.IMAGE_BASE_URL + item.backdrop_path}
               alt="movie image"
-              className=" min-w-full md:h-[310px] object-cover object-center mr-5 rounded-md hover:border-2 border-gray-400 transition-all duration-100 ease-in"
+              className=" min-w-full md:h-[310px] object-cover cursor-pointer object-center mr-5 rounded-md hover:border-2 border-gray-400 transition-all duration-100 ease-in"
             />
           );
         })}

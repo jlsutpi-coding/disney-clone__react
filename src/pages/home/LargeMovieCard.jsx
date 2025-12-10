@@ -1,4 +1,4 @@
-import GlobalApi from "../Services/GlobalApi";
+import GlobalApi from "../../Services/GlobalApi";
 
 const LargeMovieCard = ({ item }) => {
   return (

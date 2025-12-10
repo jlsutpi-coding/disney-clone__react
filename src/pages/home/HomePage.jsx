@@ -1,8 +1,9 @@
 import React from "react";
-import Header from "../components/Header";
-import ProductionHouse from "../components/ProductionHouse";
-import GenreMovieList from "../components/GenreMovieList";
-import Slider from "../components/Slider";
+import Header from "../../components/Header";
+import Slider from "./Slider";
+import ProductionHouse from "./ProductionHouse";
+import GenreMovieList from "./GenreMovieList";
+
 const HomePage = () => {
   return (
     <div className="">

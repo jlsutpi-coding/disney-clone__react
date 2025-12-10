@@ -1,7 +1,6 @@
-import GlobalApi from "../Services/GlobalApi";
+import GlobalApi from "../../Services/GlobalApi";
 
 const MovieCard = ({ item }) => {
-  console.log(item);
   return (
     <img
       src={GlobalApi.IMAGE_BASE_URL + item.poster_path}

@@ -1,6 +1,5 @@
-import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/home/HomePage";
 import MovieDetail from "./pages/MovieDetail";
 const router = createBrowserRouter([
   {
@@ -8,7 +7,7 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/movie/:movieId",
+    path: "/:media_type/:movie_id",
     element: <MovieDetail />,
   },
 ]);

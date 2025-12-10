@@ -1,10 +1,10 @@
 import { Fragment, useEffect, useRef, useState } from "react";
-import GlobalApi from "../Services/GlobalApi";
 import "./no-scrollbar.css";
 import MovieCard from "./MovieCard";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import LargeMovieCard from "./LargeMovieCard";
 import { Link } from "react-router-dom";
+import GlobalApi from "../../Services/GlobalApi";
 
 const screenWidth = window.innerWidth;
 
