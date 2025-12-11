@@ -69,7 +69,7 @@ const Detail = () => {
               </p>
 
               <div className="flex gap-4">
-                <button className="cursor-pointer px-6 py-3 rounded-lg bg-green-600 text-white font-semibold">
+                <button className="cursor-pointer px-6 py-3 rounded-lg bg-[#00925D] text-white font-semibold">
                   Continue Watching
                 </button>
                 <button className="cursor-pointer px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-white">
