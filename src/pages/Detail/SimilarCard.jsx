@@ -45,10 +45,24 @@ const SimilarCard = ({ item, media_type }) => {
           |{" "}
           {detailGenres?.map((item, index) => {
             if (index === 0) {
-              return <span key={item.id}>{item.name}</span>;
+              return (
+                <span
+                  className="text-[#78828A] text-[12px] font-medium leading-5 tracking-[0.5%]"
+                  key={item.id}
+                >
+                  {item.name}
+                </span>
+              );
             }
-            if (index > 2) {
-              return <span key={item.id}>. {item.name}</span>;
+            if (index < 3) {
+              return (
+                <span
+                  className="text-[#78828A] text-[12px] font-medium leading-5 tracking-[0.5%]"
+                  key={item.id}
+                >
+                  . {item.name}
+                </span>
+              );
             }
           })}
         </span>

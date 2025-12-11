@@ -19,7 +19,7 @@ const Header = () => {
   ];
 
   return (
-    <div className=" px-[75px] py-[39px]  flex justify-between items-center">
+    <div className=" px-[75px] py-[30px]  flex justify-between items-center">
       {/* Logo */}
       <div>
         <Link to={"/"} className=" cursor-pointer">

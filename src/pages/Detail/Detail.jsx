@@ -33,10 +33,6 @@ const Detail = () => {
 
   return (
     <>
-      <div className="fixed top-0 z-20 left-0 w-full bg-linear-to-b from-[#0d0c0f] to-tarnsparent">
-        <Header />
-      </div>
-
       <div className=" relative w-full overflow-hidden">
         {/* Background Image */}
         <img
@@ -96,7 +92,6 @@ const Detail = () => {
 
       <DetailInformation detail={detail} media_type={media_type} />
       <Similar media_type={media_type} id={detail.id} />
-      <Footer />
     </>
   );
 };

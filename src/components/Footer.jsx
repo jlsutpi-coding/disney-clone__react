@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="px-[75px] pt-[70px] pb-10 gap-[60px] flex flex-col">
+    <div className="px-[75px] mt-auto pt-[70px] pb-10 gap-[60px] flex flex-col">
       {/* Top info */}
       <div className=" flex justify-between">
         <h1 className=" max-w-111 font-medium text-[40px] leading-12 tracking-[0]">
