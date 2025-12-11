@@ -3,6 +3,7 @@ import MovieDetail from "./pages/Detail/Detail";
 import HomePage from "./pages/home/HomePage";
 import Detail from "./pages/Detail/Detail";
 import Movie from "./pages/movie/Movie";
+import Company from "./pages/company/Company";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/movie",
     element: <Movie />,
+  },
+  {
+    path: "/company/:company_id",
+    element: <Company />,
   },
 ]);
 const Routes = () => {

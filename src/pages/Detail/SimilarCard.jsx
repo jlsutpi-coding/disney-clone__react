@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
-import GlobalApi from "../../services/GlobalApi";
+import { useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
+
 import { TiStarFullOutline } from "react-icons/ti";
+
+import GlobalApi from "../../services/GlobalApi";
 
 const SimilarCard = ({ item, media_type }) => {
   const [genres, setGenre] = useState();
@@ -17,6 +20,7 @@ const SimilarCard = ({ item, media_type }) => {
   const detailGenres = genres?.filter((genre) =>
     item.genre_ids.some((id) => id === genre.id)
   );
+
   return (
     <div className=" shrink-0 no-scrollbar ">
       <Link to={`/${media_type}/${item.id}`}>
@@ -27,9 +31,11 @@ const SimilarCard = ({ item, media_type }) => {
           className="w-70 h-[183px] object-cover rounded-2xl mb-3 "
         />
       </Link>
+
       <h4 className=" font-bold text-[16px] mb-3 leading-6 tracking-[0.5%] text-[#f9f9f9]">
         {item.title?.length > 30 ? item.title.slice(0, 30) + "..." : item.title}
       </h4>
+
       <div className="flex gap-1 items-center">
         <TiStarFullOutline className=" text-yellow-500 w-[18px] h-[18px] " />
         <span className=" text-[12px] leading-5 font-semibold tracking-[0.5%] text-[#f9f9f9]">

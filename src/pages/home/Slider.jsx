@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./no-scrollbar.css";
+import { useEffect, useRef, useState } from "react";
+
+import GlobalApi from "../../services/GlobalApi";
+
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
-import GlobalApi from "../../Services/GlobalApi";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Slider = () => {
   const [movieList, setMovieList] = useState([]);
@@ -26,6 +27,7 @@ const Slider = () => {
     const cardWidth = element.firstChild.clientWidth;
     element.scrollLeft -= cardWidth + 20;
   };
+
   return (
     <div className=" ">
       {/* left arrow  icon */}
@@ -33,6 +35,7 @@ const Slider = () => {
         onClick={() => slideLeft(elementRef.current)}
         className=" hidden md:block text-white text-[30px] absolute mx-8 mt-[150px]"
       />
+
       {/* right arrow icon */}
       <HiChevronRight
         onClick={() => sliderRight(elementRef.current)}

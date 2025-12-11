@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
+import Header from "../../components/Header";
 import DetailInformation from "./DetailInformation";
 import Similar from "./Similar";
 import GlobalApi from "../../services/GlobalApi";
@@ -31,8 +32,7 @@ const Detail = () => {
       : new Date(detail.last_air_date).getFullYear();
 
   return (
-    <div className="">
-      {/* <div className="fixed top-0 left-0 w-full z-20"> */}
+    <>
       <div className="fixed top-0 z-20 left-0 w-full bg-linear-to-b from-[#0d0c0f] to-tarnsparent">
         <Header />
       </div>
@@ -46,8 +46,8 @@ const Detail = () => {
         />
 
         {/* Gradient overlay */}
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div> */}
         <div className="absolute bottom-0 left-0 w-full h-[200px] bg-linear-to-b from-transparent to-[#0d0c0f]" />
+
         {/* Content */}
         <div className="absolute bottom-10 left-0 w-full px-[75px]">
           <div className="flex items-end justify-between w-full">
@@ -93,10 +93,11 @@ const Detail = () => {
           </div>
         </div>
       </div>
+
       <DetailInformation detail={detail} media_type={media_type} />
       <Similar media_type={media_type} id={detail.id} />
       <Footer />
-    </div>
+    </>
   );
 };
 

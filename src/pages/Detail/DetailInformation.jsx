@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+
 import { HiOutlineUserCircle } from "react-icons/hi2";
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
+
 import GlobalApi from "../../services/GlobalApi";
 
 const DetailInformation = ({ detail, media_type }) => {
@@ -46,6 +48,8 @@ const DetailInformation = ({ detail, media_type }) => {
         <h4 className=" mb-4 font-bold text-[18px] leading-[26px] tracking-[0.12px]">
           Top Cast
         </h4>
+
+        {/* Cater images */}
         <div
           ref={elementRef}
           className="  overflow-x-auto  w-full items-center flex gap-6  no-scrollbar  scroll-smooth"
@@ -75,6 +79,7 @@ const DetailInformation = ({ detail, media_type }) => {
             );
           })}
         </div>
+
         {/* left arrow */}
         <div className="absolute w-[167px] bg-[linear-gradient(90deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)] flex justify-start h-12   z-20 left-[-70px] pl-5 bottom-1 items-center">
           <MdOutlineKeyboardArrowLeft

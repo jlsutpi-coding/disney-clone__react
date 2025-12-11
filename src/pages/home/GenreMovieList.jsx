@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import GenreList from "../../constant/GenreList";
 import MovieList from "./MovieList";
 
