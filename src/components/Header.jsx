@@ -15,24 +15,22 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 150) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 150);
     };
-    document.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div
-      className={`px-[75px] py-[30px]  flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all duration-300  ${
-        isScrolled
-          ? "bg-black/70 backdrop-blur-lg shadow-md"
-          : " from-black/70 to-transparent bg-linear-to-b"
-      }`}
+      className={`px-[75px] py-[30px]  flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all duration-300 
+         ${
+           isScrolled
+             ? "bg-black shadow-md"
+             : " from-black/70 to-transparent bg-linear-to-b"
+         }`}
     >
       {/* Logo */}
       <div>

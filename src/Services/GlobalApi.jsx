@@ -6,9 +6,9 @@ const apiKey = "aa1c1def5cdf04d3c70f27af3bfddad6";
 const movieGenreBaseUrl = "https://api.themoviedb.org/3/discover/movie";
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 
-const getTrendingVideos = axios.get(
-  `${movieBaseUrl}/trending/all/day?api_key=${apiKey}`
-);
+const getTrendingVideos = () => {
+  return axios.get(`${movieBaseUrl}/trending/all/day?api_key=${apiKey}`);
+};
 
 const getMovieByGenreId = (id) => {
   return axios.get(`${movieGenreBaseUrl}?api_key=${apiKey}&with_genres=${id}`);
@@ -36,12 +36,23 @@ const getGenres = (media_type) => {
   );
 };
 
+const getByCompany = (media_type, compamyId) => {
+  return axios.get(`${movieBaseUrl}/discover/${media_type}`, {
+    params: {
+      with_companies: compamyId,
+      api_key: apiKey,
+    },
+  });
+};
+
 export default {
+  IMAGE_BASE_URL,
+
   getTrendingVideos,
   getMovieByGenreId,
-  IMAGE_BASE_URL,
   getMovieDeatail,
   getCastForDetail,
   getSimilar,
   getGenres,
+  getByCompany,
 };

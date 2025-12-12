@@ -13,7 +13,7 @@ const Slider = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await GlobalApi.getTrendingVideos;
+      const response = await GlobalApi.getTrendingVideos();
       setMovieList(response.data.results);
     };
     fetchData();

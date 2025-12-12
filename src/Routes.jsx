@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/home/HomePage";
 import Detail from "./pages/detail/Detail";
 import Movie from "./pages/movie/Movie";
-import Company from "./pages/company/Company";
 import Template from "./Template";
+import Company from "./pages/discover/Company";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         element: <Movie />,
       },
       {
-        path: "/company/:company_id",
+        path: "/discover/:company_id",
         element: <Company />,
       },
     ],
