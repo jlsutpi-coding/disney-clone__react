@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import GlobalApi from "../../services/GlobalApi";
 import Detail from "./Detail";
 
@@ -30,9 +30,23 @@ const Company = () => {
       {movies.length && (
         <div className=" my-10">
           <h4 className="my-5 text-2xl font-extrabold">Moives</h4>
-          <div className="flex flex-wrap gap-x-3 gap-5 items-center justify-start">
+          <div className="flex flex-wrap gap-x-4 gap-5 items-center justify-start">
             {movies.map((movie) => (
-              <Detail key={movie.id} movie={movie} />
+              <Link to={`/movie/${movie.id}`}>
+                <Detail key={movie.id} detail={movie} />
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+      {series.length && (
+        <div className=" my-10">
+          <h4 className="my-5 text-2xl font-extrabold">Series</h4>
+          <div className="flex flex-wrap gap-x-4 gap-5 items-center justify-start">
+            {series.map((tv) => (
+              <Link to={`/tv/${tv.id}`}>
+                <Detail key={tv.id} detail={tv} />
+              </Link>
             ))}
           </div>
         </div>
