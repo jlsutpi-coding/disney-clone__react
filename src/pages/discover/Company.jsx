@@ -22,8 +22,6 @@ const Company = () => {
     fetchMovie();
   }, [company_id]);
 
-  console.log(movies);
-  console.log(series);
   return (
     <div className="h-sn text-white pt-20 px-[75px]">
       {/* Movie Part */}
@@ -32,7 +30,7 @@ const Company = () => {
           <h4 className="my-5 text-2xl font-extrabold">Moives</h4>
           <div className="flex flex-wrap gap-x-4 gap-5 items-center justify-start">
             {movies.map((movie) => (
-              <Link to={`/movie/${movie.id}`}>
+              <Link key={movie.id} to={`/movie/${movie.id}`}>
                 <Detail key={movie.id} detail={movie} />
               </Link>
             ))}
@@ -44,7 +42,7 @@ const Company = () => {
           <h4 className="my-5 text-2xl font-extrabold">Series</h4>
           <div className="flex flex-wrap gap-x-4 gap-5 items-center justify-start">
             {series.map((tv) => (
-              <Link to={`/tv/${tv.id}`}>
+              <Link key={tv.id} to={`/tv/${tv.id}`}>
                 <Detail key={tv.id} detail={tv} />
               </Link>
             ))}
