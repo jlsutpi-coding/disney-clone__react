@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 
 import Universe from "./Universe";
 import Reviews from "./Reviews";
-import Episodes from "./Episodes";
+import Episodes from "./episodes/Episodes";
 
 const Tab = ({ detail }) => {
   const [selected, setSelected] = useState(null);
@@ -27,7 +27,6 @@ const Tab = ({ detail }) => {
 
   const activeTab = selected ?? Object.keys(TABS)[0];
 
-  console.log(TABS);
   return (
     <div className=" px-[75px] pt-[30px]">
       <nav className=" flex gap-6 items-center">

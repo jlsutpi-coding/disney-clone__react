@@ -1,37 +1,38 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import GlobalApi from "../../../services/GlobalApi";
-import { RiArrowDownSLine } from "react-icons/ri";
+import GlobalApi from "../../../../services/GlobalApi";
+import EpisodeDropdown from "./EpisodeDropdown";
 
 const Episodes = ({ detail }) => {
-  const { id, number_of_episodes, number_of_seasons } = detail;
+  const { id, seasons } = detail;
   const [episodes, setEpisodes] = useState([]);
+  const [season, setSeason] = useState(1);
 
   useEffect(() => {
     const fetchEpisodesOfSeason = async () => {
-      const response = await GlobalApi.getEpisdoesOfSeries(
-        id,
-        number_of_seasons
-      );
+      const response = await GlobalApi.getEpisdoesOfSeries(id, season);
       setEpisodes(response.data.episodes);
     };
     fetchEpisodesOfSeason();
-  }, [id, number_of_seasons]);
+  }, [id, season]);
 
   return (
     <div className=" py-10 ">
       {/* header */}
       <div className="mb-6 flex justify-between items-center ">
         <h4 className=" font-bold text-[24px] leading-8 tracking-[0.5%]">
-          {number_of_seasons}- {number_of_episodes} Episodes
+          {season}-{" "}
+          {seasons.find((item) => item.season_number === season).episode_count}{" "}
+          Episodes
         </h4>
-        <button className=" flex items-center gap-2.5 bg-[#0D0C0F] cursor-pointer rounded-lg py-1 px-4 border border-[#28262D] ">
-          <span className=" text-[12px] font-bold leading-[22px] tracking-[0.5%]">
-            Season {number_of_seasons}
-          </span>
-          <RiArrowDownSLine size={16} />
-        </button>
+
+        <EpisodeDropdown
+          setSeason={setSeason}
+          season={season}
+          seasons={seasons}
+        />
       </div>
+      {/* eposides list */}
       <div className="flex overflow-x-auto no-scrollbar scroll-smooth gap-4">
         {episodes.map((episode) => (
           <div
