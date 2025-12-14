@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { FaCirclePlay } from "react-icons/fa6";
-import { CiBookmark } from "react-icons/ci";
-import { GoDownload, GoShareAndroid } from "react-icons/go";
-import { AiOutlineLike } from "react-icons/ai";
-
 import DetailInformation from "./DetailInformation";
 import Similar from "./Similar";
 import GlobalApi from "../../services/GlobalApi";

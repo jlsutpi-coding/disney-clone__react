@@ -4,7 +4,7 @@ import ProductionHouse from "./ProductionHouse";
 
 const HomePage = () => {
   return (
-    <div className="pt-20">
+    <div>
       <Slider />
       <ProductionHouse />
       <GenreMovieList />

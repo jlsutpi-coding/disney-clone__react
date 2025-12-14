@@ -21,6 +21,7 @@ const Hero = ({ detail, media_type }) => {
   };
 
   const runningTime = media_type === "movie" && converRuntime(detail.runtime);
+
   return (
     <div className=" relative w-full overflow-hidden">
       {/* Background Image */}

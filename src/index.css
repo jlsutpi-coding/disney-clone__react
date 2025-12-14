@@ -3,6 +3,10 @@
 #root {
   background-color: #0d0c0f;
   color: white;
+  --detail-medium-contrast: #9ca3af; /* gray-400 */
+  --detail-high-contrast: #6b7280; /* gray-500 */
+  --text-body: #ffffff;
+  --text-high-contrast-rgb-value: 255, 255, 255;
 }
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
