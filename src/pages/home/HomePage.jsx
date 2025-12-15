@@ -6,8 +6,8 @@ const HomePage = () => {
   return (
     <div>
       <Slider />
-      {/* <ProductionHouse /> */}
-      {/* <GenreMovieList /> */}
+      <ProductionHouse />
+      <GenreMovieList />
     </div>
   );
 };

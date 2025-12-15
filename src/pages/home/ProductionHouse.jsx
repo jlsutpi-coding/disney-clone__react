@@ -8,7 +8,7 @@ const ProductionHouse = () => {
 
   return (
     <div className="w-full overflow-hidden py-10">
-      <div className="slider-track md:gap-5 ">
+      <div className="slider-track gap-3 md:gap-5 ">
         {sliderItems.map((item, index) => (
           <HouseItem key={index} item={item} />
         ))}
