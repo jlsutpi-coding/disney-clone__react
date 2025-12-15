@@ -1,7 +1,7 @@
-import React from "react";
 import { AiFillGoogleSquare } from "react-icons/ai";
 import { FaFacebookSquare, FaTwitterSquare } from "react-icons/fa";
 import { PiInstagramLogoFill } from "react-icons/pi";
+
 import { Link } from "react-router-dom";
 
 const Footer = () => {

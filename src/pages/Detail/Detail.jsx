@@ -5,7 +5,6 @@ import DetailInformation from "./DetailInformation";
 import Similar from "./Similar";
 import GlobalApi from "../../services/GlobalApi";
 import Hero from "./Hero";
-import Universe from "./tab/Universe";
 import Tab from "./tab/Tab";
 
 const Detail = () => {

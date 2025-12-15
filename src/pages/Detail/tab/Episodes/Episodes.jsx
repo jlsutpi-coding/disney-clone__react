@@ -22,7 +22,7 @@ const Episodes = ({ detail }) => {
       <div className="mb-6 flex justify-between items-center ">
         <h4 className=" font-bold text-[24px] leading-8 tracking-[0.5%]">
           {season}-{" "}
-          {seasons.find((item) => item.season_number === season).episode_count}{" "}
+          {seasons.find((item) => item.season_number === season)?.episode_count}{" "}
           Episodes
         </h4>
 
@@ -37,12 +37,12 @@ const Episodes = ({ detail }) => {
         {episodes.map((episode) => (
           <div
             key={episode.id}
-            className=" max-w-[301px] relative cursor-pointer shrink-0"
+            className=" w-[301px] h-[197px] rounded-2xl overflow-hidden relative cursor-pointer shrink-0"
           >
             <img
               src={`${GlobalApi.IMAGE_BASE_URL}/${episode.still_path}`}
               alt="episode-image"
-              className=" rounded-2xl"
+              className=" rounded-2xl w-full h-full object-cover"
             />
             <div className="absolute bg-linear-to-t from-black to-transparent bottom-0 py-2 px-5 w-full rounded-b-2xl -left-px">
               <h4 className=" font-bold text-[16px] leading-6 tracking-[0.5%] text-[#F9F9F9]">
