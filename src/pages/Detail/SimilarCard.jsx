@@ -41,8 +41,7 @@ const SimilarCard = ({ item, media_type }) => {
         <span className=" text-[12px] leading-5 font-semibold tracking-[0.5%] text-[#f9f9f9]">
           {item.vote_average.toFixed(1)}
         </span>
-        <span>
-          |{" "}
+        <span className=" flex items-center gap-1">
           {detailGenres?.map((item, index) => {
             if (index === 0) {
               return (
@@ -50,7 +49,7 @@ const SimilarCard = ({ item, media_type }) => {
                   className="text-[#78828A] text-[12px] font-medium leading-5 tracking-[0.5%]"
                   key={item.id}
                 >
-                  {item.name}
+                  | {item.name}
                 </span>
               );
             }

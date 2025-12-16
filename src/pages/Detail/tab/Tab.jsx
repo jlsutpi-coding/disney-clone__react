@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 
 import Universe from "./Universe";
 import Reviews from "./Reviews";
-import Episodes from "./episodes/Episodes";
+import Episodes from "./episodes_temp/Episodes";
 
 const Tab = ({ detail }) => {
   const [selected, setSelected] = useState(null);

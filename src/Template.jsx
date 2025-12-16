@@ -6,8 +6,8 @@ import Header from "./components/Header";
 const Template = () => {
   return (
     <div>
-      {/* <Header /> */}
-      {/* <Outlet /> */}
+      <Header />
+      <Outlet />
       <Footer />
     </div>
   );

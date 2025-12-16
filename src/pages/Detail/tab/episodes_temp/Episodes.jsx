@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 
 import GlobalApi from "../../../../services/GlobalApi";
 import EpisodeDropdown from "./EpisodeDropdown";
+import HorizontalScroller from "../../../../components/HorizontalScroller";
 
-const Episodes = ({ detail }) => {
+function Episodes({ detail }) {
   const { id, seasons } = detail;
   const [episodes, setEpisodes] = useState([]);
   const [season, setSeason] = useState(1);
@@ -33,7 +34,8 @@ const Episodes = ({ detail }) => {
         />
       </div>
       {/* eposides list */}
-      <div className="flex overflow-x-auto no-scrollbar scroll-smooth gap-4">
+      {/* <div className="flex overflow-x-auto no-scrollbar scroll-smooth gap-4"></div> */}
+      <HorizontalScroller>
         {episodes.map((episode) => (
           <div
             key={episode.id}
@@ -57,9 +59,9 @@ const Episodes = ({ detail }) => {
             </div>
           </div>
         ))}
-      </div>
+      </HorizontalScroller>
     </div>
   );
-};
+}
 
 export default Episodes;

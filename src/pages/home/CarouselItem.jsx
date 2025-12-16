@@ -4,13 +4,15 @@ import { CiBookmark } from "react-icons/ci";
 import GlobalApi from "../../services/GlobalApi";
 
 const CarouselItem = ({ movie, genres }) => {
-  const { backdrop_path, media_type, genre_ids, overview } = movie;
+  const { backdrop_path, media_type, genre_ids = [], overview = "" } = movie;
 
-  // its only genres form ids
-  const itemGenres = genres.filter((genre) => genre_ids.includes(genre.id));
+  const itemGenres =
+    Array.isArray(genres) &&
+    genres.filter((genre) => genre_ids.includes(genre.id));
 
-  // show hero imge only background is exist
-  if (!backdrop_path) return null;
+  if (!backdrop_path) {
+    return null;
+  }
 
   return (
     <div className="  w-full">
@@ -48,16 +50,21 @@ const CarouselItem = ({ movie, genres }) => {
                   </span>
                 ))}
               </p>
-              <p className=" sm:hidden text-[#F9F9F9]  text-[14px] font-semibold leading-5  ">
-                {overview.length > 20
-                  ? overview.slice(0, 90) + "..."
-                  : overview}
-              </p>
-              <p className="sm:block hidden lg:text-[14px] max-w-[700px] font-semibold leading-5 text-[#F9F9F9]">
-                {overview.length > 350
-                  ? overview.slice(0, 350) + "..."
-                  : overview}
-              </p>
+              {overview.length > 0 && (
+                <>
+                  {" "}
+                  <p className=" sm:hidden text-[#F9F9F9]  text-[14px] font-semibold leading-5  ">
+                    {overview.length > 20
+                      ? overview.slice(0, 90) + "..."
+                      : overview}
+                  </p>
+                  <p className="sm:block hidden lg:text-[14px] max-w-[700px] font-semibold leading-5 text-[#F9F9F9]">
+                    {overview.length > 350
+                      ? overview.slice(0, 350) + "..."
+                      : overview}
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="flex gap-3 mt-2 md:mt-0  items-center md:w-auto w-full lg:gap-6">
@@ -81,4 +88,5 @@ const CarouselItem = ({ movie, genres }) => {
     </div>
   );
 };
+
 export default CarouselItem;
