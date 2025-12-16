@@ -46,11 +46,11 @@ const getByCompany = (media_type, compamyId) => {
   });
 };
 
-// const getCollection = (collection_id) => {
-//   return axios.get(
-//     `${movieBaseUrl}/collection/${collection_id}?api_key=${apiKey}`
-//   );
-// };
+const getCollection = (collection_id) => {
+  return axios.get(
+    `${movieBaseUrl}/collection/${collection_id}?api_key=${apiKey}`
+  );
+};
 
 const getEpisdoesOfSeries = (series_id, season_number) => {
   return axios.get(
@@ -71,4 +71,5 @@ export default {
   getSimilar,
   getByCompany,
   getEpisdoesOfSeries,
+  getCollection,
 };

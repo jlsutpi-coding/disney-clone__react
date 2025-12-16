@@ -1,9 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-
-import {
-  MdOutlineKeyboardArrowLeft,
-  MdOutlineKeyboardArrowRight,
-} from "react-icons/md";
+import { useEffect, useState } from "react";
 
 import GlobalApi from "../../services/GlobalApi";
 import SimilarCard from "./SimilarCard";
@@ -11,7 +6,6 @@ import HorizontalScroller from "../../components/HorizontalScroller";
 
 const Similar = ({ media_type, id }) => {
   const [similar, setSimilar] = useState([]);
-  const elementRef = useRef();
 
   useEffect(() => {
     const fetchSimilar = async () => {
@@ -20,6 +14,8 @@ const Similar = ({ media_type, id }) => {
     };
     fetchSimilar();
   }, [id, media_type]);
+
+  console.log(similar);
 
   if (!similar) return;
 
@@ -30,6 +26,7 @@ const Similar = ({ media_type, id }) => {
         Similar {media_type} for you
       </h4>
 
+      {/* Horizontal Scroll */}
       <HorizontalScroller>
         {similar.map((item) => (
           <SimilarCard media_type={media_type} item={item} key={item.id} />
