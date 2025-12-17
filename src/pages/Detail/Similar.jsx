@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
-import GlobalApi from "../../services/GlobalApi";
-import HorizontalScroller from "../../components/HorizontalScroller";
-import RowMovieCard from "../../components/RowMoiveCard";
+import GlobalApi from "../../services/GlobalApi.jsx";
+import HorizontalScroller from "../../components/HorizontalScroller.jsx";
+import RowMovieCard from "../../components/RowMoiveCard.jsx";
+import { Link } from "react-router-dom";
 
 const Similar = ({ media_type, id }) => {
   const [similar, setSimilar] = useState([]);
@@ -27,8 +28,10 @@ const Similar = ({ media_type, id }) => {
       {/* Horizontal Scroll */}
       <div className="w-full">
         <HorizontalScroller>
-          {similar.map((item) => (
-            <RowMovieCard media_type={media_type} item={item} key={item.id} />
+          {similar.map((item, index) => (
+            <Link key={index} to={`/${media_type}/${item.id}`}>
+              <RowMovieCard media_type={media_type} item={item} />
+            </Link>
           ))}
         </HorizontalScroller>
       </div>

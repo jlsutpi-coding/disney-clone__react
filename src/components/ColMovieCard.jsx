@@ -1,6 +1,6 @@
 import { TiStarFullOutline } from "react-icons/ti";
 
-import GlobalApi from "../services/GlobalApi";
+import GlobalApi from "../services/GlobalApi.jsx";
 
 const ColMovieCard = ({ item }) => {
   const { poster_path, title, name, vote_average } = item;

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { Link, useParams } from "react-router-dom";
 
-import GlobalApi from "../../services/GlobalApi";
-import ColMovieCard from "../../components/ColMovieCard";
+import GlobalApi from "../../services/GlobalApi.jsx";
+import ColMovieCard from "../../components/ColMovieCard.jsx";
 
 const Company = () => {
   const [movies, setMovies] = useState([]);

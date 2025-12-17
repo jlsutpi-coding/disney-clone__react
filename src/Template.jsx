@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 
 import { Outlet } from "react-router-dom";
 
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import GlobalApi from "./services/GlobalApi";
-import { GenresContext } from "./Context";
+import GlobalApi from "./services/GlobalApi.jsx";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+import { GenresContext } from "./Context.jsx";
 
 const Template = () => {
   const [genres, setGenres] = useState({

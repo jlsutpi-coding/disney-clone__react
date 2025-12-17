@@ -1,6 +1,6 @@
-import Slider from "./Slider";
-import GenreMovieList from "./GenreMovieList";
-import ProductionHouse from "./ProductionHouse";
+import Slider from "./Slider.jsx";
+import GenreMovieList from "./GenreMovieList.jsx";
+import ProductionHouse from "./ProductionHouse.jsx";
 
 const HomePage = () => {
   return (

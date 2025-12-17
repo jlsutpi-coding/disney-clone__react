@@ -4,9 +4,9 @@ import useEmblaCarousel from "embla-carousel-react";
 
 import Autoplay from "embla-carousel-autoplay";
 
-import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
-import CarouselItem from "./CarouselItem";
-import GlobalApi from "../../services/GlobalApi";
+import { DotButton, useDotButton } from "./EmblaCarouselDotButton.jsx";
+import CarouselItem from "./CarouselItem.jsx";
+import GlobalApi from "../../services/GlobalApi.jsx";
 import "./EmblaCarousel.css";
 
 const EmblaCarousel = (props) => {

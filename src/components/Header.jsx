@@ -9,7 +9,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 import Logo from "../assets/images/icons/logo.png";
-import { HEADER_MENUS } from "../data/headerMenus";
+import { HEADER_MENUS } from "../data/headerMenus.js";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);

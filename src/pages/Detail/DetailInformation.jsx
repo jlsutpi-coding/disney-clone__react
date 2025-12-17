@@ -6,7 +6,7 @@ import {
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
 
-import GlobalApi from "../../services/GlobalApi";
+import GlobalApi from "../../services/GlobalApi.jsx";
 
 const DetailInformation = ({ detail, media_type }) => {
   const { id, overview } = detail;

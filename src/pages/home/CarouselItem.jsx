@@ -1,7 +1,7 @@
 import { FaCirclePlay } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
 
-import GlobalApi from "../../services/GlobalApi";
+import GlobalApi from "../../services/GlobalApi.jsx";
 
 const CarouselItem = ({ movie, genres }) => {
   const { backdrop_path, media_type, genre_ids = [], overview = "" } = movie;

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 
-import GlobalApi from "../../services/GlobalApi";
-import RowMovieCard from "../../components/RowMoiveCard";
-import ColMovieCard from "../../components/ColMovieCard";
+import GlobalApi from "../../services/GlobalApi.jsx";
+import RowMovieCard from "../../components/RowMoiveCard.jsx";
+import ColMovieCard from "../../components/ColMovieCard.jsx";
 
 const screenWidth = window.innerWidth;
 

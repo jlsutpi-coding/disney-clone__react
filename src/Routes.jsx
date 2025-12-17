@@ -1,13 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Template from "./Template";
-import HomePage from "./pages/home/HomePage";
-import AboutPage from "./pages/about/AboutPage";
-import DiscoverPage from "./pages/discover/DiscoverPage";
-import MoviePage from "./pages/movie/MoviePage";
-import Detail from "./pages/detail/Detail";
-import Company from "./pages/discover/Company";
-import SeriesPage from "./pages/series/SeriesPage";
+import HomePage from "./pages/home/HomePage.jsx";
+import AboutPage from "./pages/about/AboutPage.jsx";
+import DiscoverPage from "./pages/discover/DiscoverPage.jsx";
+import MoviePage from "./pages/movie/MoviePage.jsx";
+import Detail from "./pages/detail/Detail.jsx";
+import SeriesPage from "./pages/series/SeriesPage.jsx";
+import Company from "./pages/discover/Company.jsx";
+import Template from "./Template.jsx";
 
 const router = createBrowserRouter([
   {

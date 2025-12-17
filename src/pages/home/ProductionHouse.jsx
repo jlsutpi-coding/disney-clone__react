@@ -1,5 +1,5 @@
-import { PRODUCTION_COMPANIES } from "../../data/Companies";
-import HouseItem from "./HouseItem";
+import { PRODUCTION_COMPANIES } from "../../data/Companies.js";
+import HouseItem from "./HouseItem.jsx";
 
 import "./ProductionHouse.css";
 

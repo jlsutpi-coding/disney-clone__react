@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import DetailInformation from "./DetailInformation";
-import Similar from "./Similar";
-import GlobalApi from "../../services/GlobalApi";
-import Hero from "./Hero";
-import Tab from "./tab/Tab";
+import DetailInformation from "./DetailInformation.jsx";
+import Similar from "./Similar.jsx";
+import GlobalApi from "../../services/GlobalApi.jsx";
+import Hero from "./Hero.jsx";
+import Tab from "./tab/Tab.jsx";
 
 const Detail = () => {
   const { movie_id, media_type } = useParams();

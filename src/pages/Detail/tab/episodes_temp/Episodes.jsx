@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import GlobalApi from "../../../../services/GlobalApi";
-import EpisodeDropdown from "./EpisodeDropdown";
-import HorizontalScroller from "../../../../components/HorizontalScroller";
+import GlobalApi from "../../../../services/GlobalApi.jsx";
+import EpisodeDropdown from "./EpisodeDropdown.jsx";
+import HorizontalScroller from "../../../../components/HorizontalScroller.jsx";
 
 function Episodes({ detail }) {
   const { id, seasons } = detail;
