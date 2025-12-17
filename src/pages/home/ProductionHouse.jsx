@@ -1,4 +1,4 @@
-import { PRODUCTION_COMPANIES } from "../../data/Companies.js";
+import { PRODUCTION_COMPANIES } from "../../data/companies.js";
 import HouseItem from "./HouseItem.jsx";
 
 import "./ProductionHouse.css";
