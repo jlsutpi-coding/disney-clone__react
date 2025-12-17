@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const movieBaseUrl = "https://api.themoviedb.org/3";
-const apiKey = "aa1c1def5cdf04d3c70f27af3bfddad6";
+const apiKey = import.meta.env.VITE_TMDB_API_KEY;
+console.log(apiKey, "apiley");
 
 const movieGenreBaseUrl = "https://api.themoviedb.org/3/discover/movie";
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
