@@ -6,6 +6,9 @@ The app uses the TMDB API to display movies, TV series, details, cast, and simil
 This project was created as a learning project to practice React, routing,
 API integration, and component-based development.
 
+Live Demo
+https://saint-stream-react.vercel.app/
+
 Tech Stack
 
 - React
