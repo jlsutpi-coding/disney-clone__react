@@ -6,6 +6,7 @@ import Similar from "./Similar.jsx";
 import GlobalApi from "../../services/GlobalApi.jsx";
 import Hero from "./Hero.jsx";
 import Tab from "./tab/Tab.jsx";
+import DetailSkeleton from "../../components/DetailSkeloton.jsx";
 
 const Detail = () => {
   const { movie_id, media_type } = useParams();
@@ -24,7 +25,7 @@ const Detail = () => {
   }, [movie_id, media_type]);
 
   if (!detail) {
-    return null;
+    return <DetailSkeleton page={"detail"} />;
   }
 
   return (

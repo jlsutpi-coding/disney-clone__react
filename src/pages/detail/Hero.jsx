@@ -8,8 +8,7 @@ import { AiOutlineLike } from "react-icons/ai";
 import GlobalApi from "../../services/GlobalApi";
 
 const Hero = ({ detail, media_type }) => {
-  const title =
-    media_type === "movie" ? detail.original_title : detail.original_name;
+  const title = media_type === "movie" ? detail.title : detail.name;
 
   const latest_release_date = useMemo(() => {
     if (!detail) return "";

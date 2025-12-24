@@ -16,7 +16,7 @@ const Similar = ({ media_type, id }) => {
     fetchSimilar();
   }, [id, media_type]);
 
-  if (!similar) return;
+  if (similar.length === 0) return;
 
   return (
     <div className="relative lg:py-10 md:py-7 py-8 px-5  md:px-[45px] lg:px-[75px] border border-[#ffffff1a]   ">
