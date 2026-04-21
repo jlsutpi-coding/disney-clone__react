@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import GlobalApi from "../../services/GlobalApi.jsx";
 import EmblaCarousel from "./EmblaCarousel.jsx";
+import DetailSkeleton from "../../components/DetailSkeloton.jsx";
 
 const Slider = () => {
   const [movieList, setMovieList] = useState([]);
@@ -16,7 +17,7 @@ const Slider = () => {
     fetchData();
   }, []);
 
-  if (movieList.length === 0) return null;
+  if (movieList.length === 0) return <DetailSkeleton />;
   return <EmblaCarousel slides={movieList} options={OPTIONS} />;
 };
 
