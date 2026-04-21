@@ -6,6 +6,8 @@ import { GoDownload, GoShareAndroid } from "react-icons/go";
 import { AiOutlineLike } from "react-icons/ai";
 
 import GlobalApi from "../../services/GlobalApi";
+import BtnPrimary from "../../components/BtnPrimary";
+import BtnOutline from "../../components/BtnOutline";
 
 const Hero = ({ detail, media_type }) => {
   const title = media_type === "movie" ? detail.title : detail.name;
@@ -37,7 +39,7 @@ const Hero = ({ detail, media_type }) => {
       {/* Gradient overlay */}
       <div className="absolute top-0 left-0 w-full h-[480px] sm:h-[550px] lg:h-[600px] bg-[linear-gradient(358.93deg,#0D0C0F_0.83%,rgba(13,12,15,0.85)_28.55%,rgba(13,12,15,0)_48.81%,rgba(13,12,15,0.284314)_70.66%,#0D0C0F_103.18%)] " />
 
-      {/*  */}
+      {/* Btn */}
       <div
         className="absolute w-full bottom-0 z-20  flex-col flex sm:flex-row gap-3 sm:gap-3
           justify-between px-5  md:px-[45px] lg:px-[75px] items-start sm:items-end   md:py-14 py-10 lg:py-16"
@@ -70,67 +72,49 @@ const Hero = ({ detail, media_type }) => {
           </div>
           {/* Btn section */}
           <div className="hidden sm:flex gap-4  lg:gap-6">
-            <button
-              aria-label="Watch now"
-              className=" w-full h-full justify-center sm:justify-start sm:w-auto cursor-pointer px-6 py-3 rounded-[10px] flex items-center gap-2.5 bg-primary "
-            >
+            <BtnPrimary>
               <FaCirclePlay className=" w-[22px] sm:w-[22px] sm:h-[22px]" />
               <span className=" text-[14px] font-bold leading-[22px] tracking-[0.5%] text-[#F9F9F9]">
                 Watch Now
               </span>
-            </button>
-            <button
-              aria-label="Add watch list"
-              className=" hidden md:flex cursor-pointer px-6 py-3 rounded-[10px]  items-center gap-2.5 bg-transparent border border-white "
-            >
+            </BtnPrimary>
+            <BtnOutline>
               <CiBookmark size={22} />
               <span className="text-[14px] font-bold leading-[22px] tracking-[0.5%] text-[#F9F9F9]">
                 Add Watch List
               </span>
-            </button>
+            </BtnOutline>
           </div>
         </div>
         {/* Btn groups */}
         <div className="flex  gap-3 lg:gap-6 w-full sm:w-auto items-center">
-          <button
-            aria-label="Watch now"
-            className=" shrink sm:hidden md:px-6 md:shrink-0 py-2 w-full justify-center lg:py-3 rounded-[10px] bg-primary flex items-center gap-2 lg:gap-2.5"
-          >
+          <BtnPrimary hidden={true}>
             <FaCirclePlay className=" w-[15px] h-[15px] lg:w-[22px] lg:h-[22px]" />
             <span className=" font-semibold lg:font-bold  text-[#F9F9F9]">
               Watch Now
             </span>
-          </button>
+          </BtnPrimary>
 
-          <button
-            aria-label="Download"
-            className=" flex  cursor-pointer  bg-[#0D0C0F] px-4 md:px-6 py-2 md:py-3  items-center gap-2.5 rounded-[10px] border border-white  text-[#F9F9F9]"
-          >
+          <BtnOutline page={"detail"}>
             <GoDownload className=" h-5 w-5 lg:w-[22px]" />
             <span className=" lg:inline-block hidden text-[14px] font-bold leading-[22px] tracking-[0.5%]">
               Download
             </span>
-          </button>
+          </BtnOutline>
 
-          <button
-            aria-label="Share"
-            className=" flex  cursor-pointer  bg-[#0D0C0F] px-4 md:px-6 py-2 md:py-3  items-center gap-2.5 rounded-[10px] border border-white  text-[#F9F9F9]"
-          >
+          <BtnOutline page={"detail"}>
             <GoShareAndroid className=" h-5 w-5 lg:w-[22px]" />
             <span className="text-[14px]  lg:inline-block hidden font-bold leading-[22px] tracking-[0.5%]">
               Share
             </span>
-          </button>
+          </BtnOutline>
 
-          <button
-            aria-label="Like"
-            className=" flex  cursor-pointer  bg-[#0D0C0F] px-4 md:px-6 py-2 md:py-3  items-center gap-2.5 rounded-[10px] border border-white  text-[#F9F9F9]"
-          >
+          <BtnOutline page={"detail"}>
             <AiOutlineLike className=" h-5 w-5 lg:w-[22px]" />
             <span className="text-[14px] lg:inline-block hidden font-bold leading-[22px] tracking-[0.5%]">
               Like
             </span>
-          </button>
+          </BtnOutline>
         </div>
       </div>
     </div>
