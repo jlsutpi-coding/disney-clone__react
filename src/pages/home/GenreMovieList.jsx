@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import MovieList from "./MovieList";
 
-import { GenresContext } from "../../Context.jsx";
+import { GenresContext } from "../../context/GenresContext.jsx";
 
 const GenreMovieList = () => {
   const { genres } = useContext(GenresContext);

@@ -2,10 +2,10 @@ import { useContext } from "react";
 
 import { TiStarFullOutline } from "react-icons/ti";
 import GlobalApi from "../services/GlobalApi";
-import { GenresContext } from "../Context";
+import { GenresContext } from "../context/GenresContext";
 
 const RowMovieCard = ({ item, media_type }) => {
-  const { genres } = useContext(GenresContext);
+  const genres = useContext(GenresContext);
 
   const genreList = genres?.[media_type];
 

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
 
 import { FaCirclePlay } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
@@ -8,9 +8,12 @@ import { AiOutlineLike } from "react-icons/ai";
 import GlobalApi from "../../services/GlobalApi";
 import BtnPrimary from "../../components/BtnPrimary";
 import BtnOutline from "../../components/BtnOutline";
+import { TrailerContext } from "../../context/TrailerContext";
 
 const Hero = ({ detail, media_type }) => {
   const title = media_type === "movie" ? detail.title : detail.name;
+
+  const { openTrailer } = useContext(TrailerContext);
 
   const latest_release_date = useMemo(() => {
     if (!detail) return "";
@@ -72,7 +75,9 @@ const Hero = ({ detail, media_type }) => {
           </div>
           {/* Btn section */}
           <div className="hidden sm:flex gap-4  lg:gap-6">
-            <BtnPrimary>
+            <BtnPrimary
+              onClickFunction={() => openTrailer(detail.id, media_type)}
+            >
               <FaCirclePlay className=" w-[22px] sm:w-[22px] sm:h-[22px]" />
               <span className=" text-[14px] font-bold leading-[22px] tracking-[0.5%] text-[#F9F9F9]">
                 Watch Now
@@ -88,7 +93,10 @@ const Hero = ({ detail, media_type }) => {
         </div>
         {/* Btn groups */}
         <div className="flex  gap-3 lg:gap-6 w-full sm:w-auto items-center">
-          <BtnPrimary hidden={true}>
+          <BtnPrimary
+            onClickFunction={() => openTrailer(detail.id, media_type)}
+            hidden={true}
+          >
             <FaCirclePlay className=" w-[15px] h-[15px] lg:w-[22px] lg:h-[22px]" />
             <span className=" font-semibold lg:font-bold  text-[#F9F9F9]">
               Watch Now

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 
 import useEmblaCarousel from "embla-carousel-react";
 
@@ -8,6 +8,7 @@ import { DotButton, useDotButton } from "./EmblaCarouselDotButton.jsx";
 import CarouselItem from "./CarouselItem.jsx";
 import GlobalApi from "../../services/GlobalApi.jsx";
 import "./EmblaCarousel.css";
+import { GenresContext } from "../../context/GenresContext.jsx";
 
 const EmblaCarousel = (props) => {
   const { slides, options } = props;
@@ -15,22 +16,11 @@ const EmblaCarousel = (props) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     Autoplay({ playOnInit: false, delay: 4000 }),
   ]);
-  const [genresMovie, setGenresMovie] = useState([]);
-  const [genresSeries, setGenresSeries] = useState([]);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi);
 
-  useEffect(() => {
-    const fetchGenres = async () => {
-      const responseForMovie = await GlobalApi.getGenres("movie");
-      const responseForSeries = await GlobalApi.getGenres("tv");
-
-      setGenresMovie(responseForMovie.data.genres);
-      setGenresSeries(responseForSeries.data.genres);
-    };
-    fetchGenres();
-  }, []);
+  const { genres } = useContext(GenresContext);
 
   return (
     <section className="embla  z-30 ">
@@ -41,7 +31,7 @@ const EmblaCarousel = (props) => {
               <CarouselItem
                 movie={movie}
                 genres={
-                  movie.media_type === "movie" ? genresMovie : genresSeries
+                  movie.media_type === "movie" ? genres?.movie : genres?.tv
                 }
               />
             </div>
@@ -56,7 +46,7 @@ const EmblaCarousel = (props) => {
               key={index}
               onClick={() => onDotButtonClick(index)}
               className={"embla__dot".concat(
-                index === selectedIndex ? " embla__dot--selected" : ""
+                index === selectedIndex ? " embla__dot--selected" : "",
               )}
             />
           ))}
