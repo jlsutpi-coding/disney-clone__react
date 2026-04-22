@@ -16,7 +16,7 @@ const getMovieByGenreId = (id) => {
 
 const getGenres = (media_type) => {
   return axios.get(
-    `${movieBaseUrl}/genre/${media_type}/list?api_key=${apiKey}`
+    `${movieBaseUrl}/genre/${media_type}/list?api_key=${apiKey}`,
   );
 };
 
@@ -27,13 +27,13 @@ const getMovieDeatail = (id, media_type) => {
 
 const getCastForDetail = (id, media_type) => {
   return axios.get(
-    `${movieBaseUrl}/${media_type}/${id}/credits?api_key=${apiKey}`
+    `${movieBaseUrl}/${media_type}/${id}/credits?api_key=${apiKey}`,
   );
 };
 
 const getSimilar = (id, media_type) => {
   return axios.get(
-    `${movieBaseUrl}/${media_type}/${id}/similar?api_key=${apiKey}`
+    `${movieBaseUrl}/${media_type}/${id}/similar?api_key=${apiKey}`,
   );
 };
 
@@ -48,13 +48,19 @@ const getByCompany = (media_type, compamyId) => {
 
 const getCollection = (collection_id) => {
   return axios.get(
-    `${movieBaseUrl}/collection/${collection_id}?api_key=${apiKey}`
+    `${movieBaseUrl}/collection/${collection_id}?api_key=${apiKey}`,
   );
 };
 
 const getEpisdoesOfSeries = (series_id, season_number) => {
   return axios.get(
-    `${movieBaseUrl}/tv/${series_id}/season/${season_number}?api_key=${apiKey}`
+    `${movieBaseUrl}/tv/${series_id}/season/${season_number}?api_key=${apiKey}`,
+  );
+};
+
+const getTrailerVideo = (id, media_type) => {
+  return axios.get(
+    `${movieBaseUrl}/${media_type}/${id}/videos?api_key=${apiKey}`,
   );
 };
 
@@ -72,4 +78,7 @@ export default {
   getByCompany,
   getEpisdoesOfSeries,
   getCollection,
+
+  // get trailer Video
+  getTrailerVideo,
 };
