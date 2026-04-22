@@ -8,7 +8,7 @@ import { DotButton, useDotButton } from "./EmblaCarouselDotButton.jsx";
 import CarouselItem from "./CarouselItem.jsx";
 import GlobalApi from "../../services/GlobalApi.jsx";
 import "./EmblaCarousel.css";
-import { GenresContext } from "../../Context.jsx";
+import { GenresContext } from "../../context/GenresContext.jsx";
 
 const EmblaCarousel = (props) => {
   const { slides, options } = props;

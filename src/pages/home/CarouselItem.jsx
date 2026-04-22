@@ -4,9 +4,13 @@ import { CiBookmark } from "react-icons/ci";
 import GlobalApi from "../../services/GlobalApi.jsx";
 import BtnPrimary from "../../components/BtnPrimary.jsx";
 import BtnOutline from "../../components/BtnOutline.jsx";
+import { useContext } from "react";
+import { TrailerContext } from "../../context/TrailerContext.jsx";
 
 const CarouselItem = ({ movie, genres }) => {
   const { backdrop_path, media_type, genre_ids = [], overview = "" } = movie;
+
+  const { openTrailer } = useContext(TrailerContext);
 
   const itemGenres =
     Array.isArray(genres) &&
@@ -15,7 +19,7 @@ const CarouselItem = ({ movie, genres }) => {
   if (!backdrop_path) {
     return null;
   }
-
+  console.log(movie.id);
   return (
     <div className="  w-full">
       <div
@@ -70,7 +74,9 @@ const CarouselItem = ({ movie, genres }) => {
             </div>
 
             <div className="flex gap-3 mt-2 md:mt-0  items-center md:w-auto w-full lg:gap-6">
-              <BtnPrimary>
+              <BtnPrimary
+                onClickFunction={() => openTrailer(movie.id, movie.media_type)}
+              >
                 <FaCirclePlay className=" w-[15px] h-[15px] lg:w-[22px] lg:h-[22px]" />
                 <span className=" font-semibold lg:font-bold  text-[#F9F9F9]">
                   Watch Now
