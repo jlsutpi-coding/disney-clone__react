@@ -2,6 +2,8 @@ import { FaCirclePlay } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
 
 import GlobalApi from "../../services/GlobalApi.jsx";
+import BtnPrimary from "../../components/BtnPrimary.jsx";
+import BtnOutline from "../../components/BtnOutline.jsx";
 
 const CarouselItem = ({ movie, genres }) => {
   const { backdrop_path, media_type, genre_ids = [], overview = "" } = movie;
@@ -68,25 +70,19 @@ const CarouselItem = ({ movie, genres }) => {
             </div>
 
             <div className="flex gap-3 mt-2 md:mt-0  items-center md:w-auto w-full lg:gap-6">
-              <button
-                aria-label="Watch later"
-                className=" shrink md:w-auto md:px-6 md:shrink-0 py-2 w-full justify-center lg:py-3 rounded-[10px] bg-primary flex items-center gap-2 lg:gap-2.5"
-              >
+              <BtnPrimary>
                 <FaCirclePlay className=" w-[15px] h-[15px] lg:w-[22px] lg:h-[22px]" />
                 <span className=" font-semibold lg:font-bold  text-[#F9F9F9]">
                   Watch Now
                 </span>
-              </button>
+              </BtnPrimary>
 
-              <button
-                aria-label="Add watch list"
-                className="shrink md:w-auto md:px-6 md:shrink-0 w-full justify-center  py-2 lg:py-3 rounded-[10px] border border-white flex items-center gap-2.5"
-              >
+              <BtnOutline>
                 <CiBookmark className=" w-[15px] h-[15px] lg:w-[22px] lg:h-[22px]" />
                 <span className=" font-semibold lg:font-bold text-[#F9F9F9]">
                   Add Watch List
                 </span>
-              </button>
+              </BtnOutline>
             </div>
           </div>
         </div>
