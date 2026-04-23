@@ -14,7 +14,7 @@ const RowMovieCard = ({ item, media_type }) => {
   );
 
   return (
-    <div className="w-[300px] hover:scale-105 transition-scale duration-300  shrink-0   no-scrollbar ">
+    <div className="max-w-[300px] hover:scale-105 transition-scale duration-300  shrink-0   ">
       <img
         src={`${GlobalApi.IMAGE_BASE_URL}/${item.backdrop_path}`}
         alt={item.backdrop_path}

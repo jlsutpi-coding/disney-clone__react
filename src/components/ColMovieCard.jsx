@@ -9,11 +9,11 @@ const ColMovieCard = ({ item }) => {
       ? title.slice(0, 22) + "..."
       : title
     : name?.length > 22
-    ? name.slice(0, 22) + "..."
-    : name;
+      ? name.slice(0, 22) + "..."
+      : name;
 
   return (
-    <div className="relative h-100 w-62 overflow-hidden hover:scale-105 transition-all duration-300  ">
+    <div className="relative h-100 max-w-[300px] overflow-hidden hover:scale-105 transition-all duration-300  ">
       <img
         src={`${GlobalApi.IMAGE_BASE_URL}/${poster_path}`}
         className="absolute inset-0 w-full h-full object-cover rounded-xl"

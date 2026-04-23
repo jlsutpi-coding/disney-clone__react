@@ -5,9 +5,8 @@ import { FaFacebookSquare, FaTwitterSquare } from "react-icons/fa";
 import { PiInstagramLogoFill } from "react-icons/pi";
 
 const Footer = () => {
-  //py-[15px]  lg:py-[30px]
   return (
-    <footer className=" xl:px-[75px] lg:px-[45px]   md:px-[30px] px-5  md:pt-10 pt-[25px] lg:pt-[70px] mt-auto lg:pb-10 md:pb-[30px] pb-5 lg:gap-[60px] gap-5 md:gap-10 flex flex-col">
+    <footer className=" xl:px-[75px] lg:px-[45px] bg-[#0d0c0f]  md:px-[30px] px-5  md:pt-10 pt-[25px] lg:pt-[70px] mt-auto lg:pb-10 md:pb-[30px] pb-5 lg:gap-[60px] gap-5 md:gap-10 flex flex-col">
       {/* Top info */}
       <div className=" flex-col gap-5 lg:gap-0 lg:flex-row  justify-center items-start lg:items-stretch  flex lg:justify-between">
         <h1 className="w-full  lg:max-w-111 font-medium md:text-[30px]  text-[20px]  lg:text-[40px] leading-10 lg:leading-12 tracking-[0]">

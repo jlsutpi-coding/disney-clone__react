@@ -52,7 +52,7 @@ const Template = () => {
   };
 
   return (
-    <div className=" relative ">
+    <div className=" relative bg-[#0d0c0f] ">
       <GenresContext.Provider value={{ genres }}>
         <TrailerContext.Provider
           value={{ trailerState, setTrailerState, openTrailer, closeTrailer }}
