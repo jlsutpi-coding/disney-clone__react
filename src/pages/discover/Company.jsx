@@ -32,6 +32,8 @@ const Company = () => {
     fetchMovie();
   }, [company_id]);
 
+  console.log(movies, series);
+
   if (loading)
     return (
       <div className=" text-white pt-20 xl:px-[75px] lg:px-[45px]   md:px-[30px] px-5">
