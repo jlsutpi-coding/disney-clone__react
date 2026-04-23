@@ -2,7 +2,7 @@ const MovieCardSkeleton = ({ type = "col" }) => {
   // 🔹 Column (grid) card skeleton
   if (type === "col") {
     return (
-      <div className="relative h-100 w-62 animate-pulse rounded-xl overflow-hidden">
+      <div className="relative shrink-0 h-100 w-62 animate-pulse rounded-xl overflow-hidden">
         {/* Poster */}
         <div className="absolute inset-0 bg-[#1f1f1f] " />
 
