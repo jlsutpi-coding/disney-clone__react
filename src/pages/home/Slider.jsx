@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import GlobalApi from "../../services/GlobalApi.jsx";
 import EmblaCarousel from "./EmblaCarousel.jsx";
-import DetailSkeleton from "../../components/DetailSkeloton.jsx";
+import DetailSkeleton from "../../components/DetailSkeleton.jsx";
 
 const Slider = () => {
   const [movieList, setMovieList] = useState([]);

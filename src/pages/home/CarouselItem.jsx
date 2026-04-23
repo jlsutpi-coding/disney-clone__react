@@ -19,7 +19,6 @@ const CarouselItem = ({ movie, genres }) => {
   if (!backdrop_path) {
     return null;
   }
-  console.log(movie.id);
   return (
     <div className="  w-full">
       <div

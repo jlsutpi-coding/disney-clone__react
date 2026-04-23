@@ -7,18 +7,29 @@ import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import GlobalApi from "../../services/GlobalApi.jsx";
 import RowMovieCard from "../../components/RowMoiveCard.jsx";
 import ColMovieCard from "../../components/ColMovieCard.jsx";
+import MovieCardSkeleton from "../../components/MovieCardSkeleton.jsx";
 
 const screenWidth = window.innerWidth;
 
 const MovieList = ({ genreId, index }) => {
   const [movieList, setMovieList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getMovirByGenreId = async () => {
-      const response = await GlobalApi.getMovieByGenreId(genreId);
-      setMovieList(response.data.results);
+    const getMoviesByGenreId = async () => {
+      try {
+        setLoading(true);
+
+        const response = await GlobalApi.getMovieByGenreId(genreId);
+        setMovieList(response.data.results);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
     };
-    getMovirByGenreId();
+
+    getMoviesByGenreId();
   }, [genreId]);
 
   const elementRef = useRef(null);
@@ -29,6 +40,19 @@ const MovieList = ({ genreId, index }) => {
   const slideLeft = (element) => {
     element.scrollLeft -= screenWidth - 110;
   };
+  if (loading) {
+    return (
+      <div className=" flex overflow-x-auto  gap-5 lg:gap-10 no-scrollbar pt-3 lg:pt-5 pb-10 lg:px-3 scroll-smooth">
+        {index % 3 === 0
+          ? Array.from({ length: 5 }).map((_, index) => (
+              <MovieCardSkeleton type="row" key={index} />
+            ))
+          : Array.from({ length: 5 }).map((_, index) => (
+              <MovieCardSkeleton type="col" key={index} />
+            ))}
+      </div>
+    );
+  }
   return (
     <div className="relative">
       {/* left arrow */}

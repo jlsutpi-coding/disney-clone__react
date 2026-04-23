@@ -5,7 +5,7 @@ import GlobalApi from "../services/GlobalApi";
 import { GenresContext } from "../context/GenresContext";
 
 const RowMovieCard = ({ item, media_type }) => {
-  const genres = useContext(GenresContext);
+  const { genres } = useContext(GenresContext);
 
   const genreList = genres?.[media_type];
 
@@ -29,28 +29,16 @@ const RowMovieCard = ({ item, media_type }) => {
           {item.vote_average.toFixed(1)}
         </span>
         <span className=" flex items-center gap-1">
-          {detailGenres?.map((item, index) => {
-            if (index === 0) {
-              return (
-                <span
-                  className="text-[#78828A] text-[12px] font-medium leading-5 tracking-[0.5%]"
-                  key={item.id}
-                >
-                  | {item.name}
-                </span>
-              );
-            }
-            if (index < 3) {
-              return (
-                <span
-                  className="text-[#78828A] text-[12px] font-medium leading-5 tracking-[0.5%]"
-                  key={item.id}
-                >
-                  . {item.name}
-                </span>
-              );
-            }
-          })}
+          |{" "}
+          {detailGenres?.slice(0, 3).map((item, index) => (
+            <span
+              className="text-[#78828A] text-[12px] font-medium leading-5 tracking-[0.5%]"
+              key={item.id}
+            >
+              {index > 0 && ". "}
+              {item.name}
+            </span>
+          ))}
         </span>
       </div>
     </div>

@@ -13,11 +13,11 @@ const Universe = ({ detail }) => {
     if (belongs_to_collection) {
       const fetchUniverse = async () => {
         const response = await GlobalApi.getCollection(
-          belongs_to_collection.id
+          belongs_to_collection.id,
         );
         //  filter out the exsited show deatil card
         const data = response.data.parts.filter(
-          (item) => item.id !== detail.id
+          (item) => item.id !== detail.id,
         );
 
         setUniverse(data);

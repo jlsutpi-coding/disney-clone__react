@@ -6,7 +6,7 @@ import Similar from "./Similar.jsx";
 import GlobalApi from "../../services/GlobalApi.jsx";
 import Hero from "./Hero.jsx";
 import Tab from "./tab/Tab.jsx";
-import DetailSkeleton from "../../components/DetailSkeloton.jsx";
+import DetailSkeleton from "../../components/DetailSkeleton.jsx";
 
 const Detail = () => {
   const { movie_id, media_type } = useParams();
