@@ -8,7 +8,7 @@ import { GenresContext } from "../../context/GenresContext.jsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 import "swiper/css/pagination";
 
@@ -30,7 +30,12 @@ const Slider = () => {
 
   if (movieList.length === 0) return <DetailSkeleton />;
   return (
-    <Swiper pagination={{ clickable: true }} modules={[Pagination]}>
+    <Swiper
+      autoplay={{ delay: 3000 }}
+      loop={true}
+      pagination={{ clickable: true }}
+      modules={[Pagination, Autoplay]}
+    >
       {movieList.map((movie) => (
         <SwiperSlide key={movie.id}>
           <CarouselItem
