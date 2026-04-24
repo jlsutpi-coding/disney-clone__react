@@ -31,11 +31,11 @@ const Similar = ({ media_type, id }) => {
       <div className="w-full">
         <HorizontalScroller>
           {similar?.map((item, index) => (
-            <Link key={index} to={`/${media_type}/${item.id}`}>
-              <SwiperSlide key={index}>
+            <SwiperSlide key={index}>
+              <Link to={`/${media_type}/${item.id}`}>
                 <RowMovieCard media_type={media_type} item={item} />
-              </SwiperSlide>
-            </Link>
+              </Link>
+            </SwiperSlide>
           ))}
         </HorizontalScroller>
       </div>
