@@ -5,6 +5,8 @@ import HorizontalScroller from "../../components/HorizontalScroller.jsx";
 import RowMovieCard from "../../components/RowMoiveCard.jsx";
 import { Link } from "react-router-dom";
 
+import { SwiperSlide } from "swiper/react";
+
 const Similar = ({ media_type, id }) => {
   const [similar, setSimilar] = useState([]);
 
@@ -28,9 +30,11 @@ const Similar = ({ media_type, id }) => {
       {/* Horizontal Scroll */}
       <div className="w-full">
         <HorizontalScroller>
-          {similar.map((item, index) => (
+          {similar?.map((item, index) => (
             <Link key={index} to={`/${media_type}/${item.id}`}>
-              <RowMovieCard media_type={media_type} item={item} />
+              <SwiperSlide key={index}>
+                <RowMovieCard media_type={media_type} item={item} />
+              </SwiperSlide>
             </Link>
           ))}
         </HorizontalScroller>
