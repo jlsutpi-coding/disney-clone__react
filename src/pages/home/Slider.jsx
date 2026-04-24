@@ -1,23 +1,24 @@
 import { useContext, useEffect, useState } from "react";
 
 import GlobalApi from "../../services/GlobalApi.jsx";
+
 import DetailSkeleton from "../../components/DetailSkeleton.jsx";
+
 import CarouselItem from "./CarouselItem.jsx";
+
 import { GenresContext } from "../../context/GenresContext.jsx";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-
 import { Autoplay, Pagination } from "swiper/modules";
 
+import "swiper/css";
 import "swiper/css/pagination";
+
+import "./Swiper-dot.css";
 
 const Slider = () => {
   const [movieList, setMovieList] = useState([]);
   const { genres } = useContext(GenresContext);
-
-  console.log(genres);
-  const OPTIONS = { loop: true };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +27,6 @@ const Slider = () => {
     };
     fetchData();
   }, []);
-  console.log(movieList);
 
   if (movieList.length === 0) return <DetailSkeleton />;
   return (
