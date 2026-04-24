@@ -4,6 +4,7 @@ import GlobalApi from "../../../services/GlobalApi.jsx";
 import HorizontalScroller from "../../../components/HorizontalScroller.jsx";
 import RowMovieCard from "../../../components/RowMoiveCard.jsx";
 import { Link } from "react-router-dom";
+import { SwiperSlide } from "swiper/react";
 
 const Universe = ({ detail }) => {
   const { belongs_to_collection } = detail;
@@ -31,9 +32,11 @@ const Universe = ({ detail }) => {
     <div className=" py-5 md:py-7  lg:py-10 w-full">
       <HorizontalScroller>
         {universe.map((item) => (
-          <Link key={item.id} to={`/${item.media_type}/${item.id}`}>
-            <RowMovieCard item={item} media_type={item.media_type} />
-          </Link>
+          <SwiperSlide key={item.id}>
+            <Link to={`/${item.media_type}/${item.id}`}>
+              <RowMovieCard item={item} media_type={item.media_type} />
+            </Link>
+          </SwiperSlide>
         ))}
       </HorizontalScroller>
     </div>

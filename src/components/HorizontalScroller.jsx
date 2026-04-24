@@ -1,49 +1,67 @@
-import { useRef } from "react";
+import { useState } from "react";
 
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
 
+import { Swiper } from "swiper/react";
+import { Navigation } from "swiper/modules";
+
+import { SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/navigation";
+
 const HorizontalScroller = ({ children }) => {
-  const ref = useRef(null);
-
-  const scrollLeft = () => {
-    if (ref.current) {
-      ref.current.scrollLeft -= ref.current.clientWidth - 110;
-    }
-  };
-  const scrollRight = () => {
-    ref.current.scrollLeft += ref.current.clientWidth + 110;
-  };
-
+  const [nextRef, setNextRef] = useState(null);
+  const [prevRef, setPrevRef] = useState(null);
   return (
-    <div className="relative w-full">
-      {/* Similar detail images */}
-      <div
-        ref={ref}
-        className="  flex overflow-x-auto scroll-smooth gap-4 no-scrollbar "
+    <div className="relative w-full group ">
+      <Swiper
+        modules={[Navigation]}
+        slidesPerView={1.2}
+        spaceBetween={20}
+        navigation={{ nextEl: nextRef, prevEl: prevRef }}
+        breakpoints={{
+          640: {
+            slidesPerView: 2.2,
+            spaceBetween: 20,
+            slidesPerGroup: 2,
+          },
+          768: {
+            slidesPerView: 3.2,
+            spaceBetween: 25,
+            slidesPerGroup: 3,
+          },
+          1024: {
+            slidesPerView: 4.2,
+            slidesPerGroup: 4,
+            spaceBetween: 25,
+          },
+          1280: {
+            slidesPerView: 4.5,
+            slidesPerGroup: 4,
+            spaceBetween: 30,
+          },
+        }}
       >
         {children}
-      </div>
+      </Swiper>
 
-      {/* Scroll left button */}
-      <div className="absolute z-20 h-53 hidden lg:flex items-center bg-[linear-gradient(89.96deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)] bottom-[10%] py-[72px] px-5 -left-[70px]">
-        <MdOutlineKeyboardArrowLeft
-          aria-label="Scroll card left"
-          onClick={() => scrollLeft(ref.current)}
-          className=" bg-[#28262D] hover:bg-[#7b7a7d] text-white w-7 h-7 rounded-full cursor-pointer"
-        />
-      </div>
-
-      {/* scroll right button */}
-      <div className="absolute z-20 h-53  hidden lg:flex items-center bg-[linear-gradient(269.96deg,#0D0C0F_18.88%,rgba(13,12,15,0)_99.97%,#0D0C0F_99.97%)] bottom-[10%] py-[72px] px-5 right-[-70px] jc ">
-        <MdOutlineKeyboardArrowRight
-          aria-label="Scroll card right"
-          onClick={() => scrollRight(ref.current)}
-          className=" bg-[#28262D] hover:bg-[#7b7a7d] text-white w-7 h-7 rounded-full cursor-pointer"
-        />
-      </div>
+      <button
+        className="  lg:-left-12 absolute hidden lg:block cursor-pointer bg-black/50 p-2 hover:bg-[#7b7a7d] z-20 rounded-full top-1/2 -translate-y-1/2"
+        ref={setPrevRef}
+      >
+        <MdOutlineKeyboardArrowLeft className=" w-6 h-6 text-white" />
+      </button>
+      <button
+        ref={setNextRef}
+        className="absolute hidden lg:block bg-black/50 hover:bg-[#7b7a7d] cursor-pointer rounded-full p-2 lg:right-5 z-20 top-1/2 -translate-y-1/2"
+      >
+        <MdOutlineKeyboardArrowRight className="w-6 h-6 text-white " />
+      </button>
+      <div className="absolute hidden lg:flex  right-0 top-0 z-10 h-full w-12 lg:w-20  items-center justify-center transparent bg-linear-to-l from-[#0d0c0f] to-transparent"></div>
     </div>
   );
 };

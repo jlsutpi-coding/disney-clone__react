@@ -18,7 +18,6 @@ const MovieCardSkeleton = ({ type = "col" }) => {
     );
   }
 
-  // 🔹 Row (horizontal scroll) card skeleton
   return (
     <div className="w-[300px] shrink-0 animate-pulse">
       {/* Backdrop image */}

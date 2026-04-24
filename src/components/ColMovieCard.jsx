@@ -19,7 +19,7 @@ const ColMovieCard = ({ item }) => {
     : "";
 
   return (
-    <div className="relative shrink-0 h-[375px] w-62  rounded-xl overflow-hidden ">
+    <div className="relative shrink-0 h-[375px] w-62 hover:scale-105 transition-all duration-300  rounded-xl overflow-hidden ">
       {imageUrl && !imageError ? (
         <img
           src={imageUrl}
