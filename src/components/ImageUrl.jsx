@@ -23,7 +23,7 @@ const ImageUrl = ({ imageUrl, template, alt }) => {
           onLoad={() => setImageLoading(false)}
         />
       ) : (
-        <div className="absolute w-full h-full flex justify-center items-center text-sm text-gray-400">
+        <div className="absolute w-full h-full flex justify-center bg-[#1f1f1f] items-center text-sm text-gray-400">
           No image
         </div>
       )}
