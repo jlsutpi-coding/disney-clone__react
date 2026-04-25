@@ -14,7 +14,7 @@ const EpisodeDropdown = ({ season, seasons, setSeason }) => {
         className=" flex items-center gap-2.5 bg-[#0D0C0F] cursor-pointer rounded-lg py-1 px-4 border border-[#28262D] "
       >
         <span className=" text-[12px] font-bold leading-[22px] tracking-[0.5%]">
-          Season {season}
+          {season === 0 ? "Speicals" : "Season " + season}
         </span>
         {isOpen ? <RiArrowUpSLine size={16} /> : <RiArrowDownSLine size={16} />}
       </button>
@@ -31,7 +31,9 @@ const EpisodeDropdown = ({ season, seasons, setSeason }) => {
                 className=" flex justify-center hover:bg-zinc-900 w-full items-center gap-2.5 cursor-pointer   py-1 px-4  "
               >
                 <span className=" text-[12px] font-bold leading-[22px] tracking-[0.5%]">
-                  Season {season.season_number}
+                  {season.season_number === 0
+                    ? "Specials"
+                    : "Season" + season.season_number}
                 </span>
               </button>
             ))}
