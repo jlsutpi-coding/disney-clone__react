@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import { useContext, useMemo, useState } from "react";
 
 import { FaCirclePlay } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
@@ -12,6 +12,8 @@ import { TrailerContext } from "../../context/TrailerContext";
 
 const Hero = ({ detail, media_type }) => {
   const title = media_type === "movie" ? detail.title : detail.name;
+  const [imageLoading, setImageLoading] = useState(true);
+  const [imageError, setImageError] = useState(false);
 
   const { openTrailer } = useContext(TrailerContext);
 
@@ -30,14 +32,33 @@ const Hero = ({ detail, media_type }) => {
 
   const runningTime = media_type === "movie" && converRuntime(detail.runtime);
 
+  const imageUrl = detail?.backdrop_path
+    ? `${GlobalApi.IMAGE_BASE_URL}/${detail.backdrop_path}`
+    : "";
+
   return (
     <div className=" relative w-full overflow-hidden h-[480px] sm:h-[550px] lg:h-[600px]">
-      {/* Background Image */}
-      <img
-        src={`${GlobalApi.IMAGE_BASE_URL}/${detail?.backdrop_path}`}
-        className=" w-full h-full object-cover"
-        alt="detail-background-image"
-      />
+      <div className=" relative w-full h-full">
+        {/* Background Image */}
+        {imageUrl && !imageError && imageLoading && (
+          <div className=" animate-pulse absolute inset-0 w-full h-full bg-[#1f1f1f]"></div>
+        )}
+        {imageUrl && !imageError ? (
+          <img
+            src={imageUrl}
+            className=" absolute w-full h-full object-cover"
+            alt="detail-background-image"
+            onError={() => {
+              setImageError(true);
+              setImageLoading(false);
+            }}
+          />
+        ) : (
+          <div className=" absolute w-full h-full bg-[#1f1f1f] text-gray-400 flex items-center justify-center">
+            No background image{" "}
+          </div>
+        )}
+      </div>
 
       {/* Gradient overlay */}
       <div className="absolute top-0 left-0 w-full h-[480px] sm:h-[550px] lg:h-[600px] bg-[linear-gradient(358.93deg,#0D0C0F_0.83%,rgba(13,12,15,0.85)_28.55%,rgba(13,12,15,0)_48.81%,rgba(13,12,15,0.284314)_70.66%,#0D0C0F_103.18%)] " />
