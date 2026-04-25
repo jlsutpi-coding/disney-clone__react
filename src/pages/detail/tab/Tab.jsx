@@ -19,13 +19,10 @@ const Tab = ({ detail }) => {
       result.Universe = <Universe detail={detail} />;
     }
 
-    // Reviews always available
-    // result.Reviews = <Reviews detail={detail} />;
     return result;
   }, [detail]);
 
   const activeTab = selected ?? Object.keys(TABS)[0];
-
   return (
     <div className=" px-5  md:px-[45px] lg:px-[75px] pt-5 lg:pt-[30px]">
       <nav className=" flex gap-6 items-center">
