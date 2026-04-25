@@ -1,13 +1,13 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import { TiStarFullOutline } from "react-icons/ti";
 import GlobalApi from "../services/GlobalApi";
 import { GenresContext } from "../context/GenresContext";
+import ImageUrl from "./ImageUrl";
 
 const RowMovieCard = ({ item, media_type }) => {
   const { backdrop_path, title, genre_ids } = item;
   const { genres } = useContext(GenresContext);
-  const [imageError, setImageError] = useState(false);
 
   const genreList = genres?.[media_type];
 
@@ -20,18 +20,9 @@ const RowMovieCard = ({ item, media_type }) => {
 
   return (
     <div className="max-w-[300px] hover:scale-105 transition-scale duration-300  shrink-0   ">
-      {imageUrl && !imageError ? (
-        <img
-          src={imageUrl}
-          alt={backdrop_path}
-          onError={() => setImageError(true)}
-          className="  h-[183px] w-full  object-cover rounded-2xl mb-3 "
-        />
-      ) : (
-        <div className=" h-[183px] w-full object-cover rounded-2xl mb-3 bg-linear-to-br from-gray-700 to-gray-900 text-gray-400 text-sm flex justify-center items-center">
-          No image
-        </div>
-      )}
+      <div className="  h-[183px]  mb-3 w-full">
+        <ImageUrl template="row" imageUrl={imageUrl} alt={title} />
+      </div>
       <h4 className=" font-bold text-[16px] mb-3 leading-6 tracking-[0.5%] text-[#f9f9f9]">
         {title?.length > 30 ? title.slice(0, 30) + "..." : title}
       </h4>

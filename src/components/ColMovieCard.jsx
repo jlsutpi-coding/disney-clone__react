@@ -1,10 +1,9 @@
 import { TiStarFullOutline } from "react-icons/ti";
 
 import GlobalApi from "../services/GlobalApi.jsx";
-import { useState } from "react";
+import ImageUrl from "./ImageUrl.jsx";
 
 const ColMovieCard = ({ item }) => {
-  const [imageError, setImageError] = useState(false);
   const { poster_path, title, name, vote_average } = item;
   const detailTitle = title
     ? title?.length > 22
@@ -20,17 +19,7 @@ const ColMovieCard = ({ item }) => {
 
   return (
     <div className="relative shrink-0 h-[375px] w-62 hover:scale-105 transition-all duration-300  rounded-xl overflow-hidden ">
-      {imageUrl && !imageError ? (
-        <img
-          src={imageUrl}
-          className="  w-full h-full object-cover rounded-xl"
-          onError={() => setImageError(true)}
-        />
-      ) : (
-        <div className="w-full h-full bg-linear-to-br from-gray-700 to-gray-900 flex items-center justify-center text-gray-400 text-sm">
-          No Image
-        </div>
-      )}
+      <ImageUrl imageUrl={imageUrl} template={"column"} alt={title} />
       <div className="absolute z-10 bottom-0  left-0 rounded-lg pl-3 pb-3 bg-linear-to-t from-black to-transparent w-full  ">
         <h4 className=" font-bold text-[16px] mb-3 leading-6 tracking-[0.5%] text-[#f9f9f9]">
           {detailTitle}

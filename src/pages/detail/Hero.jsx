@@ -9,6 +9,7 @@ import GlobalApi from "../../services/GlobalApi";
 import BtnPrimary from "../../components/BtnPrimary";
 import BtnOutline from "../../components/BtnOutline";
 import { TrailerContext } from "../../context/TrailerContext";
+import ImageUrl from "../../components/ImageUrl";
 
 const Hero = ({ detail, media_type }) => {
   const title = media_type === "movie" ? detail.title : detail.name;
@@ -30,13 +31,16 @@ const Hero = ({ detail, media_type }) => {
 
   const runningTime = media_type === "movie" && converRuntime(detail.runtime);
 
+  const imageUrl = detail?.backdrop_path
+    ? `${GlobalApi.IMAGE_BASE_URL}/${detail.backdrop_path}`
+    : "";
+
   return (
     <div className=" relative w-full overflow-hidden h-[480px] sm:h-[550px] lg:h-[600px]">
-      {/* Background Image */}
-      <img
-        src={`${GlobalApi.IMAGE_BASE_URL}/${detail?.backdrop_path}`}
-        className=" w-full h-full object-cover"
-        alt="detail-background-image"
+      <ImageUrl
+        imageUrl={imageUrl}
+        template={"hero"}
+        alt={detail?.backdrop_path}
       />
 
       {/* Gradient overlay */}

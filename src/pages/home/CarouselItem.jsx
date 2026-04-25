@@ -1,11 +1,13 @@
+import { useContext } from "react";
+
 import { FaCirclePlay } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
 
 import GlobalApi from "../../services/GlobalApi.jsx";
 import BtnPrimary from "../../components/BtnPrimary.jsx";
 import BtnOutline from "../../components/BtnOutline.jsx";
-import { useContext } from "react";
 import { TrailerContext } from "../../context/TrailerContext.jsx";
+import ImageUrl from "../../components/ImageUrl.jsx";
 
 const CarouselItem = ({ movie, genres }) => {
   const { backdrop_path, media_type, genre_ids = [], overview = "" } = movie;
@@ -16,19 +18,15 @@ const CarouselItem = ({ movie, genres }) => {
     Array.isArray(genres) &&
     genres.filter((genre) => genre_ids.includes(genre.id));
 
-  if (!backdrop_path) {
-    return null;
-  }
+  const imageUrl = backdrop_path
+    ? `${GlobalApi.IMAGE_BASE_URL}/${backdrop_path}`
+    : "";
   return (
     <div className="  w-full">
       <div
         className={` relative inset-0 overflow-hidden h-[480px] sm:h-[550px] lg:h-[600px] transition-transform transform `}
       >
-        <img
-          src={`${GlobalApi.IMAGE_BASE_URL}/${backdrop_path}`}
-          className="h-full w-full  object-cover"
-          alt=""
-        />
+        <ImageUrl imageUrl={imageUrl} template={"hero"} alt={backdrop_path} />
 
         <div className="absolute bottom-0 z-20 inset-x-0 w-full h-[308px] bg-linear-to-t from-[#0d0c0f] to-transparent" />
 
