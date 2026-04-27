@@ -33,7 +33,7 @@ const RowMovieCard = ({ item, media_type }) => {
         </span>
         <span className=" flex items-center gap-1">
           |{" "}
-          {detailGenres?.slice(0, 3).map((item, index) => (
+          {detailGenres?.slice(0, 2).map((item, index) => (
             <span
               className="text-[#78828A] text-[12px] font-medium leading-5 tracking-[0.5%]"
               key={index}
