@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   MdOutlineKeyboardArrowLeft,
@@ -14,15 +14,31 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 const HorizontalScroller = ({ children }) => {
-  const [nextRef, setNextRef] = useState(null);
-  const [prevRef, setPrevRef] = useState(null);
+  const swiperRef = useRef(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+
+  useEffect(() => {
+    swiperRef.current.slideTo(0);
+  }, [children]);
+
+  const handleSlideChange = (swiper) => {
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  };
+
   return (
     <div className="relative w-full group ">
       <Swiper
         modules={[Navigation]}
         slidesPerView={1.2}
         spaceBetween={20}
-        navigation={{ nextEl: nextRef, prevEl: prevRef }}
+        onSlideChange={handleSlideChange}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+          setIsBeginning(swiper.isBeginning);
+          setIsEnd(swiper.isEnd);
+        }}
         breakpoints={{
           640: {
             slidesPerView: 2.2,
@@ -50,14 +66,14 @@ const HorizontalScroller = ({ children }) => {
       </Swiper>
 
       <button
-        className="  lg:-left-12 absolute hidden lg:block cursor-pointer bg-black/50 p-2 hover:bg-[#7b7a7d] z-20 rounded-full top-1/2 -translate-y-1/2"
-        ref={setPrevRef}
+        className={` ${isBeginning ? "opacity-0" : "opacity-100"} transition-opacity duration-300 lg:-left-12 absolute hidden lg:block cursor-pointer bg-black/50 p-2 hover:bg-[#7b7a7d] z-20 rounded-full top-1/2 -translate-y-1/2`}
+        onClick={() => swiperRef.current?.slidePrev()}
       >
         <MdOutlineKeyboardArrowLeft className=" w-6 h-6 text-white" />
       </button>
       <button
-        ref={setNextRef}
-        className="absolute hidden lg:block bg-black/50 hover:bg-[#7b7a7d] cursor-pointer rounded-full p-2 lg:right-5 z-20 top-1/2 -translate-y-1/2"
+        onClick={() => swiperRef.current?.slideNext()}
+        className={`${isEnd ? "opacity-0" : "opacity-100"} transition-opacity duration-300 absolute hidden lg:block bg-black/50 hover:bg-[#7b7a7d] cursor-pointer rounded-full p-2 lg:right-5 z-20 top-1/2 -translate-y-1/2`}
       >
         <MdOutlineKeyboardArrowRight className="w-6 h-6 text-white " />
       </button>
