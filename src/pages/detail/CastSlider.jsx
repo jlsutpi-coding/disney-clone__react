@@ -39,7 +39,7 @@ const CastSlider = ({ cast }) => {
                       <img
                         src={`${GlobalApi.IMAGE_BASE_URL}/${item.profile_path}`}
                         alt="actor-photo"
-                        className=" rounded-full w-12 h-12 object-cover overflow-hidden "
+                        className=" rounded-full w-12 h-12 object-cover overflow-hidden bg-[#1f1f1f] "
                       />
                     ) : (
                       <HiOutlineUserCircle className=" rounded-full w-14 h-14 object-cover overflow-hidden " />
