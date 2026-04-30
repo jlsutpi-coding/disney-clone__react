@@ -1,7 +1,6 @@
-import { useContext } from "react";
-
 import { FaCirclePlay } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
+import { GoBookmark, GoBookmarkFill } from "react-icons/go";
 
 import GlobalApi from "../../services/GlobalApi.jsx";
 import BtnPrimary from "../../components/BtnPrimary.jsx";
@@ -9,10 +8,10 @@ import BtnOutline from "../../components/BtnOutline.jsx";
 import { TrailerContext } from "../../context/TrailerContext.jsx";
 import ImageUrl from "../../components/ImageUrl.jsx";
 
+import HeroBtnGroup from "../../components/HeroBtnGroup.jsx";
+
 const CarouselItem = ({ movie, genres }) => {
   const { backdrop_path, media_type, genre_ids = [], overview = "" } = movie;
-
-  const { openTrailer } = useContext(TrailerContext);
 
   const itemGenres =
     Array.isArray(genres) &&
@@ -71,21 +70,7 @@ const CarouselItem = ({ movie, genres }) => {
             </div>
 
             <div className="flex gap-3 mt-2 md:mt-0  items-center md:w-auto w-full lg:gap-6">
-              <BtnPrimary
-                onClickFunction={() => openTrailer(movie.id, movie.media_type)}
-              >
-                <FaCirclePlay className=" w-[15px] h-[15px] lg:w-[22px] lg:h-[22px]" />
-                <span className=" font-semibold lg:font-bold  text-[#F9F9F9]">
-                  Watch Now
-                </span>
-              </BtnPrimary>
-
-              <BtnOutline>
-                <CiBookmark className=" w-[15px] h-[15px] lg:w-[22px] lg:h-[22px]" />
-                <span className=" font-semibold lg:font-bold text-[#F9F9F9]">
-                  Add Watch List
-                </span>
-              </BtnOutline>
+              <HeroBtnGroup item={movie} />
             </div>
           </div>
         </div>

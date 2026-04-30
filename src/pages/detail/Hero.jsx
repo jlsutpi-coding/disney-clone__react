@@ -2,14 +2,21 @@ import { useContext, useMemo } from "react";
 
 import { FaCirclePlay } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
-import { GoDownload, GoShareAndroid } from "react-icons/go";
+import {
+  GoBookmark,
+  GoBookmarkFill,
+  GoDownload,
+  GoShareAndroid,
+} from "react-icons/go";
 import { AiOutlineLike } from "react-icons/ai";
 
 import GlobalApi from "../../services/GlobalApi";
+
 import BtnPrimary from "../../components/BtnPrimary";
 import BtnOutline from "../../components/BtnOutline";
 import { TrailerContext } from "../../context/TrailerContext";
 import ImageUrl from "../../components/ImageUrl";
+import HeroBtnGroup from "../../components/HeroBtnGroup";
 
 const Hero = ({ detail, media_type }) => {
   const title = media_type === "movie" ? detail.title : detail.name;
@@ -79,20 +86,7 @@ const Hero = ({ detail, media_type }) => {
           </div>
           {/* Btn section */}
           <div className="hidden sm:flex gap-4  lg:gap-6">
-            <BtnPrimary
-              onClickFunction={() => openTrailer(detail.id, media_type)}
-            >
-              <FaCirclePlay className=" w-[22px] sm:w-[22px] sm:h-[22px]" />
-              <span className=" text-[14px] font-bold leading-[22px] tracking-[0.5%] text-[#F9F9F9]">
-                Watch Now
-              </span>
-            </BtnPrimary>
-            <BtnOutline>
-              <CiBookmark size={22} />
-              <span className="text-[14px] font-bold leading-[22px] tracking-[0.5%] text-[#F9F9F9]">
-                Add Watch List
-              </span>
-            </BtnOutline>
+            <HeroBtnGroup item={detail} />
           </div>
         </div>
         {/* Btn groups */}
