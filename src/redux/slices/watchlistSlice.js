@@ -27,7 +27,7 @@ const watchlistSlice = createSlice({
       );
       if (existingItem) return;
       state.watchlistItems.push(payload);
-      updateLocalStorage(state.watchlistItems);
+      uploadToLocalStorage(state.watchlistItems);
     },
     removeFromWatchlists: (state, { payload }) => {
       const existingItem = state.watchlistItems.find(
@@ -37,12 +37,12 @@ const watchlistSlice = createSlice({
       state.watchlistItems = state.watchlistItems.filter(
         (item) => item.id !== payload,
       );
-      updateLocalStorage(state.watchlistItems);
+      uploadToLocalStorage(state.watchlistItems);
     },
   },
 });
 
-const updateLocalStorage = (watchlistItems) => {
+const uploadToLocalStorage = (watchlistItems) => {
   localStorage.setItem("movie_watchlists", JSON.stringify(watchlistItems));
 };
 

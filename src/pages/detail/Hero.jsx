@@ -1,16 +1,18 @@
 import { useContext, useMemo } from "react";
 
+import { useDispatch, useSelector } from "react-redux";
+
 import { FaCirclePlay } from "react-icons/fa6";
-import { CiBookmark } from "react-icons/ci";
-import {
-  GoBookmark,
-  GoBookmarkFill,
-  GoDownload,
-  GoShareAndroid,
-} from "react-icons/go";
-import { AiOutlineLike } from "react-icons/ai";
+import { GoDownload, GoShareAndroid } from "react-icons/go";
+import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 
 import GlobalApi from "../../services/GlobalApi";
+
+import {
+  addToLikes,
+  removeFromLikes,
+  selectIsInLikedItems,
+} from "../../redux/slices/likeSlice";
 
 import BtnPrimary from "../../components/BtnPrimary";
 import BtnOutline from "../../components/BtnOutline";
@@ -20,6 +22,8 @@ import HeroBtnGroup from "../../components/HeroBtnGroup";
 
 const Hero = ({ detail, media_type }) => {
   const title = media_type === "movie" ? detail.title : detail.name;
+
+  const dispatch = useDispatch();
 
   const { openTrailer } = useContext(TrailerContext);
 
@@ -41,6 +45,18 @@ const Hero = ({ detail, media_type }) => {
   const imageUrl = detail?.backdrop_path
     ? `${GlobalApi.IMAGE_BASE_URL}/${detail.backdrop_path}`
     : "";
+
+  const isLiked = useSelector((state) =>
+    selectIsInLikedItems(state, detail.id),
+  );
+
+  const onAddToLike = () => {
+    if (isLiked) {
+      dispatch(removeFromLikes(detail.id));
+    } else {
+      dispatch(addToLikes(detail));
+    }
+  };
 
   return (
     <div className=" relative w-full overflow-hidden h-[480px] sm:h-[550px] lg:h-[600px]">
@@ -115,10 +131,19 @@ const Hero = ({ detail, media_type }) => {
             </span>
           </BtnOutline>
 
-          <BtnOutline page={"detail"}>
-            <AiOutlineLike className=" h-5 w-5 lg:w-[22px]" />
+          <BtnOutline
+            isActive={isLiked}
+            onClickFunction={onAddToLike}
+            page={"detail"}
+          >
+            {isLiked ? (
+              <AiFillLike className=" h-5 w-5 lg:w-[22px]" />
+            ) : (
+              <AiOutlineLike className=" h-5 w-5 lg:w-[22px]" />
+            )}
+
             <span className="text-[14px] lg:inline-block hidden font-bold leading-[22px] tracking-[0.5%]">
-              Like
+              {isLiked ? "Liked" : "Like"}
             </span>
           </BtnOutline>
         </div>

@@ -7,7 +7,7 @@ const EpisodeCard = ({ episode }) => {
   const imageUrl = episode?.still_path
     ? `${GlobalApi.IMAGE_BASE_URL}/${episode.still_path}`
     : "";
-  console.log(imageUrl);
+
   return (
     <div className="relative  max-w-[300px]  h-[197px] rounded-2xl overflow-hidden  cursor-pointer shrink-0">
       <ImageUrl imageUrl={imageUrl} template={"row"} alt={episode.name} />
