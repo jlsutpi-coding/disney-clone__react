@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+
 import GlobalApi from "../services/GlobalApi";
 import { GenresContext } from "../context/GenresContext";
 import { TrailerContext } from "../context/TrailerContext";
@@ -68,7 +69,7 @@ const TrailerVideo = () => {
       >
         <button
           onClick={closeTrailer}
-          className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200"
+          className="absolute top-4 right-4 z-10 cursor-pointer bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-200"
           aria-label="Close trailer"
         >
           <svg
