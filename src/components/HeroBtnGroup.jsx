@@ -43,7 +43,7 @@ const HeroBtnGroup = ({ item }) => {
         {isActive ? <GoBookmarkFill size={22} /> : <GoBookmark size={22} />}
 
         <span className="text-[14px] font-bold leading-[22px] tracking-[0.5%] text-[#F9F9F9]">
-          Add Watch List
+          {isActive ? "Added Watchlist" : "Add Watchlist"}
         </span>
       </BtnOutline>
     </>
