@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 
 import { Link, NavLink } from "react-router-dom";
 
-import { HiOutlineUserCircle } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
 import { FiBell } from "react-icons/fi";
-import { RiArrowDownSLine } from "react-icons/ri";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 import Logo from "../assets/images/icons/logo.png";
 import { HEADER_MENUS } from "../data/headerMenus.js";
+import HeaderDropdown from "./HeaderDropdown.jsx";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,7 +26,7 @@ const Header = () => {
 
   return (
     <div
-      className={`xl:px-[75px] lg:px-[45px]   lg:py-[30px] md:px-[30px] px-5 py-[15px]  flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all duration-300 
+      className={`xl:px-[75px] lg:px-[45px]    lg:py-[30px] md:px-[30px] px-5 py-[15px]  flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all duration-300 
          ${
            isScrolled
              ? "bg-[#0D0C0F] shadow-md"
@@ -84,10 +83,7 @@ const Header = () => {
       <div className="flex items-center gap-2 lg:gap-[23px]">
         <IoSearchOutline className="w-4 h-4 md:w-6 md:h-6 cursor-pointer hover:text-[#d2d7da]" />
         <FiBell className="hidden lg:block lg:w-6 lg:h-6  cursor-pointer hover:text-[#d2d7da]" />
-        <div className=" hidden lg:flex items-center gap-1">
-          <HiOutlineUserCircle className="w-8 h-8 rounded-full cursor-pointer hover:text-[#d2d7da]" />
-          <RiArrowDownSLine className="w-5 h-5 cursor-pointer hover:text-[#d2d7da]" />
-        </div>
+
         {/* Hambuger Menu */}
         <div className="md:block lg:hidden   ">
           <HiOutlineMenuAlt3
@@ -95,6 +91,8 @@ const Header = () => {
             onClick={() => setIsOpen(!isOpen)}
           />
         </div>
+        {/* Header profile icon */}
+        <HeaderDropdown />
       </div>
     </div>
   );
