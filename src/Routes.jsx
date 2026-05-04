@@ -8,6 +8,7 @@ import Detail from "./pages/detail/Detail.jsx";
 import SeriesPage from "./pages/series/SeriesPage.jsx";
 import Company from "./pages/discover/Company.jsx";
 import Template from "./Template.jsx";
+import WatchlistPage from "./pages/watchlist/WatchlistPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "tv",
         element: <SeriesPage />,
+      },
+      {
+        path: "watchlist",
+        element: <WatchlistPage />,
       },
     ],
   },
