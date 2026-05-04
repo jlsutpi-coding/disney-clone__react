@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 
+import { Link } from "react-router-dom";
+
+import { SwiperSlide } from "swiper/react";
+
 import GlobalApi from "../../../services/GlobalApi.jsx";
 import HorizontalScroller from "../../../components/HorizontalScroller.jsx";
 import RowMovieCard from "../../../components/RowMoiveCard.jsx";
-import { Link } from "react-router-dom";
-import { SwiperSlide } from "swiper/react";
 
 const Universe = ({ detail }) => {
   const { belongs_to_collection } = detail;
