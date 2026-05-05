@@ -19,7 +19,7 @@ const RowMovieCard = ({ item, media_type }) => {
     : "";
 
   return (
-    <div className="max-w-[300px] hover:scale-105 transition-scale duration-300  shrink-0   ">
+    <div className="max-w-[300px]   transition-scale duration-300  shrink-0   ">
       <div className="  h-[183px]  mb-3 w-full">
         <ImageUrl template="row" imageUrl={imageUrl} alt={title} />
       </div>
