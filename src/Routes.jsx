@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         element: <SeriesPage />,
       },
       {
-        path: "watchlist",
+        path: "/watchlist",
         element: <WatchlistPage />,
       },
     ],
