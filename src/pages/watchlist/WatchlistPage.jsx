@@ -12,9 +12,9 @@ const WatchlistPage = () => {
   const watchlistItems = useSelector(selectWatchlistItems);
   console.log(watchlistItems);
   return (
-    <div className=" pt-40  py-20 px-10 ">
+    <div className="pt-10 lg:pt-40  py-10 lg:py-20 px-10 ">
       <h4 className="my-5 text-2xl font-extrabold">Your Watchlist</h4>
-      <div className=" flex gap-10 ">
+      <div className=" flex gap-10 flex-wrap justify-center lg:justify-start ">
         {watchlistItems?.map((item) => (
           <Link key={item.id} to={`/${item.title ? "movie" : "tv"}/${item.id}`}>
             <ColMovieCard item={item} page="watchlist" />
