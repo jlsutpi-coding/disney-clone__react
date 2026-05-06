@@ -23,7 +23,13 @@ const HeroBtnGroup = ({ item }) => {
   const isActive = useSelector((state) => selectIsInWatchlist(state, item.id));
   return (
     <>
-      <BtnPrimary onClickFunction={() => openTrailer(item.id, item.media_type)}>
+      <BtnPrimary
+        onClickFunction={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          openTrailer(item.id, item.media_type);
+        }}
+      >
         <FaCirclePlay className=" w-[15px] h-[15px] lg:w-[22px] lg:h-[22px]" />
         <span className=" font-semibold lg:font-bold  text-[#F9F9F9]">
           Watch Now
@@ -32,7 +38,10 @@ const HeroBtnGroup = ({ item }) => {
 
       <BtnOutline
         isActive={isActive}
-        onClickFunction={() => {
+        onClickFunction={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
           if (isActive) {
             dispatch(removeFromWatchlists(item.id));
           } else {
