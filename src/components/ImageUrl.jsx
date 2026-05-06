@@ -14,7 +14,7 @@ const ImageUrl = ({ imageUrl, template, alt }) => {
           onError={() => {
             setImageError(true);
           }}
-          className={`absolute w-full h-full object-cover hover:scale-105 transition-all duration-300 `}
+          className={`absolute w-full h-full object-cover ${template === "hero" ? "group-hover:scale-105" : "hover:scale-105"}  transition-all duration-300 `}
           loading="lazy"
         />
       ) : (
