@@ -49,7 +49,7 @@ const ColMovieCard = ({ item, page = "" }) => {
           e.stopPropagation();
           onRemoveFromWatchlist(item.id);
         }}
-        className={`${page === "watchlist" ? "absolute opacity-0 cursor-pointer group-hover:opacity-100 transition-all duration-300 " : "hidden"}   top-2 right-2  bg-gray-200/90 backdrop-blur-sm transition-transform hover:bg-gray-100 hover:scale-110 duration-200 hover:shadow-lg shadow-md    rounded-full z-100`}
+        className={`${page === "watchlist" ? "absolute opacity-100 lg:opacity-0 cursor-pointer group-hover:opacity-100 transition-all duration-300 " : "hidden"}   top-2 right-2  bg-gray-200/90 backdrop-blur-sm transition-transform hover:bg-gray-100 hover:scale-110 duration-200 hover:shadow-lg shadow-md    rounded-full z-100`}
       >
         <MdDeleteOutline className=" w-7 h-7 text-red-600 hover:text-red-700  p-1 " />
       </button>

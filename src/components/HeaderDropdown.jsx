@@ -57,12 +57,12 @@ const HeaderDropdown = () => {
   }, [openDropdown]);
 
   return (
-    <div className=" relative" ref={dropdownRef}>
+    <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => {
           setOpenDropdown(!openDropdown);
         }}
-        className="  flex items-center hover:text-[#d2d7da] gap-0.5 lg:gap-1 cursor-pointer"
+        className="flex items-center hover:text-[#d2d7da] gap-0.5 lg:gap-1 cursor-pointer"
       >
         <HiOutlineUserCircle className=" w-5 h-5 lg:w-8 lg:h-8" />
 
@@ -71,7 +71,7 @@ const HeaderDropdown = () => {
         />
       </button>
       <div
-        className={` absolute mt-3 origin-top-right bg-[#0d0c0f] rounded-lg w-56 right-0  border border-gray-800 shadow-xl z-50 transition-all duration-200  ${
+        className={`absolute mt-3 origin-top-right bg-[#0d0c0f] rounded-lg w-56 right-0  border border-gray-800 shadow-xl z-50 transition-all duration-200  ${
           openDropdown
             ? "opacity-100 scale-100 visible pointer-events-auto"
             : "opacity-0 scale-95 invisible pointer-events-none"
@@ -86,9 +86,9 @@ const HeaderDropdown = () => {
                 }}
                 className="px-4 py-2 hover:bg-white/10 transition-colors cursor-pointer"
               >
-                <div className="  flex items-center gap-3">
+                <div className="flex items-center gap-3">
                   {item.icon}
-                  <span className=" font-semibold lg:font-bold">
+                  <span className="font-semibold lg:font-bold">
                     {item.title}
                   </span>
                 </div>
