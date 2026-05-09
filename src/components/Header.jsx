@@ -24,9 +24,17 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => (document.body.style.overflow = "unset");
+  }, [isOpen]);
   return (
     <div
-      className={`xl:px-[75px] lg:px-[45px]    lg:py-[30px] md:px-[30px] px-5 py-[15px]  flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all duration-300 
+      className={`xl:px-[75px] lg:px-[45px] lg:py-[30px] md:px-[30px] px-5 py-[15px] flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-all duration-300 
          ${
            isScrolled
              ? "bg-[#0D0C0F] shadow-md"
@@ -58,26 +66,26 @@ const Header = () => {
         ))}
       </div>
 
-      {isOpen && (
-        <div className=" lg:hidden  absolute top-full bg-black  items-center justify-center  left-0 w-full flex  flex-col">
-          {HEADER_MENUS.map((item, index) => (
-            <NavLink
-              className={({ isActive }) =>
-                "transition-all duration-300 border-b px-4 py-3  w-full  text-center  border-[#ffffff1a] leading-[100%] tracking-[0%]  text-[12px] " +
-                (isActive
-                  ? "  font-extrabold "
-                  : "  hover:text-[#d2d7da]  font-normal")
-              }
-              to={item.path}
-              key={index}
-              onClick={() => setIsOpen(false)}
-            >
-              <span></span>
-              {item.text}
-            </NavLink>
-          ))}
-        </div>
-      )}
+      <div
+        className={`lg:hidden  absolute top-full bg-[#0d0c0f] transition-all duration-300  items-center justify-center  left-0 w-full flex  flex-col ${isOpen ? " opacity-100 max-h-[500px]  " : " max-h-0 pointer-events-none opacity-0"} `}
+      >
+        {HEADER_MENUS.map((item, index) => (
+          <NavLink
+            className={({ isActive }) =>
+              "transition-all duration-300 border-b px-4 py-3  w-full  text-center  border-[#ffffff1a] leading-[100%] tracking-[0%]  text-[12px] " +
+              (isActive
+                ? "  font-extrabold "
+                : "  hover:text-[#d2d7da]  font-normal")
+            }
+            to={item.path}
+            key={index}
+            onClick={() => setIsOpen(false)}
+          >
+            <span></span>
+            {item.text}
+          </NavLink>
+        ))}
+      </div>
 
       {/* Right Section */}
       <div className="flex items-center gap-2 lg:gap-[23px]">
